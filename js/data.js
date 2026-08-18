@@ -14,7 +14,7 @@ const PORTFOLIO_DATA = {
     heroSubtext: "Exploring AI, data, software and human-centered technology to turn ideas into meaningful digital experiences.",
     brandStatement: "I'm not just learning technology.<br><span class=\"text-[#111111]\">I'm building with it.</span>",
     brandWords: ["AI.", "DATA.", "SOFTWARE.", "DESIGN."],
-    aboutStory: "I'm a Computer Science & Engineering student passionate about Artificial Intelligence, Data Analytics, Software Development, and building technology that solves real problems. From architecting predictive machine learning pipelines to engineering responsive, high-performance web systems, I combine analytical rigor with thoughtful human-centric design.",
+    aboutStory: "I’m a Computer Science & Engineering student passionate about technology, AI, and building meaningful digital experiences. I enjoy turning ideas into practical solutions through web development, cloud technologies, AI-assisted development, and modern tools. I’m naturally curious and love learning by building, experimenting, and solving real-world problems.",
     location: "Navi Mumbai, India",
     university: "ITM Skills University",
     academicStatus: "B.Tech in Computer Science and Engineering (2024 — 2028)",
@@ -53,38 +53,38 @@ const PORTFOLIO_DATA = {
   journey: [
     {
       step: "01",
-      tag: "CURIOUS & LEARN",
-      title: "Foundations & Curiosity",
-      period: "2023",
-      description: "Started with core computer science principles, mathematical foundations, Python, and data structures. Developed a deep fascination with how data patterns reveal hidden truths."
+      tag: "Curiosity → First Step",
+      title: "The Beginning",
+      period: "Step 01",
+      description: "My journey started with a curiosity about technology and a desire to understand how websites, applications, and digital products work."
     },
     {
       step: "02",
-      tag: "EXPLORE & EXPERIMENT",
-      title: "Data Analytics & ML",
-      period: "2024",
-      description: "Dove into exploratory data analysis, NumPy, Pandas, Scikit-learn, and statistical regression. Started building predictive models for real estate valuation and compensation benchmarking."
+      tag: "Learning → Building",
+      title: "Development & Design",
+      period: "Step 02",
+      description: "I explored <strong class=\"text-[#111827] dark:text-[#F8FAFC] font-semibold\">programming, web development, UI/UX, databases, and cloud technologies</strong>, turning what I learned into practical projects and interactive experiences."
     },
     {
       step: "03",
-      tag: "BUILD & SOLVE",
-      title: "Full Stack & IoT Systems",
-      period: "2024 — 2025",
-      description: "Expanded into modern frontend architectures, cloud databases (Firebase, Supabase), and IoT hardware simulation with ESP32 and Blynk telemetry."
+      tag: "Ideas → Real Products",
+      title: "Building Projects",
+      period: "Step 03",
+      description: "I started turning what I learned into practical projects, building web applications and exploring technologies like Firebase, cloud services, and modern development tools."
     },
     {
       step: "04",
-      tag: "INNOVATE",
-      title: "AI-Powered Products (WeSafe)",
-      period: "2025",
-      description: "Engineered WeSafe, combining real-time speech recognition, safe-word emergency triggers, and live geospatial tracking into an accessible life-saving PWA."
+      tag: "Intelligence → Innovation",
+      title: "AI & Innovation",
+      period: "Step 04",
+      description: "My journey continued into <strong class=\"text-[#111827] dark:text-[#F8FAFC] font-semibold\">Artificial Intelligence, Generative AI, and AI Agents</strong>, exploring how intelligent systems can solve real-world problems and create smarter digital experiences."
     },
     {
       step: "05",
-      tag: "CREATING THE FUTURE",
-      title: "AI Agents & Vibe Coding",
-      period: "2025 — Present",
-      description: "Exploring autonomous AI agent workflows, prompt engineering, and generative systems at AA Immersive while continually pushing the boundaries of intelligent software."
+      tag: "Learning → Impact",
+      title: "The Road Ahead",
+      period: "Step 05",
+      description: "I’m continuing to grow across <strong class=\"text-[#111827] dark:text-[#F8FAFC] font-semibold\">software development, data science, and AI</strong>, while building meaningful projects, collaborating with others, and exploring emerging technologies to create solutions with real-world impact."
     }
   ],
 
@@ -92,35 +92,35 @@ const PORTFOLIO_DATA = {
   whatIBuild: [
     {
       number: "01",
-      title: "AI & ML",
-      tagline: "Predictive Models & Intelligent Agents",
-      description: "Supervised and unsupervised learning systems, speech recognition interfaces, generative workflows, and autonomous agent orchestration that make software proactive.",
-      capabilities: ["Supervised ML Regression", "Speech Recognition AI", "Agentic Workflows", "Model Evaluation & Tuning"],
-      tools: "Python • Scikit-Learn • Web Speech API • Pandas"
+      title: "Web Development",
+      tagline: "Responsive, Interactive & Cloud-Connected Apps",
+      description: "Build responsive, interactive, and user-focused web applications using modern frontend technologies, databases, APIs, and cloud services.",
+      capabilities: ["Frontend Architecture", "REST APIs & Integrations", "Cloud Database Sync", "Responsive Web Design"],
+      tools: "JavaScript • HTML/CSS • Firebase • REST APIs"
     },
     {
       number: "02",
-      title: "DATA & ANALYTICS",
+      title: "Data Science & Machine Learning",
       tagline: "Transforming Raw Data into Actionable Clarity",
-      description: "End-to-end data processing pipelines, exploratory statistical analysis, multivariate feature engineering, and interactive visualization dashboards.",
-      capabilities: ["Exploratory Data Analysis (EDA)", "Feature Engineering", "Data Visualization", "Statistical Benchmarking"],
-      tools: "NumPy • Pandas • Matplotlib • SQL"
+      description: "Analyze and visualize data, identify patterns, and develop machine learning models to transform data into meaningful insights and predictions.",
+      capabilities: ["Exploratory Data Analysis (EDA)", "Supervised ML Regression", "Data Visualization", "Statistical Benchmarking"],
+      tools: "Python • Pandas • NumPy • Scikit-Learn"
     },
     {
       number: "03",
-      title: "SOFTWARE",
-      tagline: "Robust, High-Performance Systems",
-      description: "Modern web applications, scalable state management, cloud database architectures, authentication systems, and embedded IoT simulations.",
-      capabilities: ["RESTful Architecture", "Cloud Database Sync", "IoT Telemetry Simulation", "Clean Code Architecture"],
-      tools: "JavaScript • Node.js • Firebase • ESP32 / Blynk"
+      title: "AI & Generative AI",
+      tagline: "Intelligent Workflows & Autonomous Agents",
+      description: "Explore AI, Generative AI, and AI Agents to build intelligent applications, automate workflows, and create innovative technology solutions.",
+      capabilities: ["AI Agent Workflows", "Generative AI Systems", "Prompt Engineering", "Workflow Automation"],
+      tools: "Groq Llama 3.3 • Vector Embeddings • Agent Workflows"
     },
     {
       number: "04",
-      title: "DIGITAL EXPERIENCES",
-      tagline: "Human-Centered Design with Cinematic Polish",
-      description: "Fast, responsive, and accessible digital products engineered with Apple-level aesthetic restraint, smooth GSAP micro-interactions, and visual harmony.",
-      capabilities: ["Micro-Interaction Design", "Fluid Responsive Layouts", "Web Accessibility (A11y)", "Performance & SEO Optimization"],
-      tools: "HTML5 • Tailwind CSS • GSAP • Lucide"
+      title: "UI/UX & Problem Solving",
+      tagline: "Human-Centered Design with Tactile Polish",
+      description: "Design intuitive digital experiences while approaching complex problems with creativity, experimentation, and a user-focused mindset.",
+      capabilities: ["Intuitive Interface Design", "Design Systems & A11y", "Micro-Interactions", "Creative Problem Solving"],
+      tools: "Figma • Modern CSS • GSAP • Lucide"
     }
   ],
 
@@ -356,7 +356,7 @@ const PORTFOLIO_DATA = {
       location: "Remote",
       period: "December 2025 – Present",
       highlights: [
-        "Built and deployed 5+ full-stack web applications using Firebase Authentication, Firestore, and cloud services, improving development efficiency by 30% through reusable components.",
+        "Collaborated with the development team to design, develop, and enhance full-stack web applications",
         "Developing interactive interfaces and integrating Firebase for application functionality and data management.",
         "Contributed to end-to-end application development, including frontend implementation, backend integration, database configuration, testing, and deployment.",
         "Exploring new technologies and development approaches to continuously improve technical skills and problem-solving abilities."

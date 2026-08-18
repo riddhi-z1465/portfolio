@@ -69,18 +69,18 @@
 
   <!-- Instant Theme Initializer (Default: Light Mode) -->
   <script>
-    (function () {
-      const savedTheme = localStorage.getItem('portfolio-theme');
-      if (savedTheme === 'dark') {
-        document.documentElement.classList.add('dark');
-        const meta = document.querySelector('meta[name="theme-color"]');
-        if (meta) meta.setAttribute('content', '#0B0F17');
-      } else {
-        document.documentElement.classList.remove('dark');
-        const meta = document.querySelector('meta[name="theme-color"]');
-        if (meta) meta.setAttribute('content', '#F8FAFC');
-      }
-    })();
+      (function () {
+        const savedTheme = localStorage.getItem('portfolio-theme');
+        if (savedTheme === 'dark') {
+          document.documentElement.classList.add('dark');
+          const meta = document.querySelector('meta[name="theme-color"]');
+          if (meta) meta.setAttribute('content', '#0B0F17');
+        } else {
+          document.documentElement.classList.remove('dark');
+          const meta = document.querySelector('meta[name="theme-color"]');
+          if (meta) meta.setAttribute('content', '#F8FAFC');
+        }
+      })();
   </script>
 </head>
 
@@ -159,8 +159,7 @@
         <!-- Theme Mode Toggle Button -->
         <button id="theme-toggle-btn"
           class="theme-toggle-btn magnetic-btn w-9 h-9 rounded-full border border-[#E2E8F0] bg-white text-[#64748B] hover:text-[#0891B2] hover:border-[#A5F3FC] shadow-sm flex items-center justify-center transition-all cursor-pointer"
-          aria-label="Toggle theme mode"
-          title="Toggle Light / Dark Mode">
+          aria-label="Toggle theme mode" title="Toggle Light / Dark Mode">
           <i data-lucide="moon" class="w-4 h-4 theme-icon-moon"></i>
           <i data-lucide="sun" class="w-4 h-4 theme-icon-sun hidden"></i>
         </button>
@@ -176,8 +175,7 @@
         <!-- Mobile Theme Toggle -->
         <button id="mobile-theme-toggle-btn"
           class="theme-toggle-btn w-9 h-9 rounded-full border border-[#E2E8F0] bg-white text-[#64748B] hover:text-[#0891B2] flex items-center justify-center transition-all cursor-pointer"
-          aria-label="Toggle theme mode"
-          title="Toggle Light / Dark Mode">
+          aria-label="Toggle theme mode" title="Toggle Light / Dark Mode">
           <i data-lucide="moon" class="w-4 h-4 theme-icon-moon"></i>
           <i data-lucide="sun" class="w-4 h-4 theme-icon-sun hidden"></i>
         </button>
@@ -295,33 +293,37 @@
           </p>
 
           <h2 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-[#64748B] tracking-tight leading-tight">
-            I'm not just learning technology.<br>
-            <span class="text-[#111827]">I'm building with it.</span>
+            Stay curious, keep learning, and turn every challenge <br>
+            <span class="text-[#111827]">into an opportunity to build something better.</span>
           </h2>
         </div>
 
         <!-- 4 Sequential Words Reveal -->
         <div id="brand-words-block"
-          class="pt-16 sm:pt-24 grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-[#E2E8F0] mt-16">
-          <div class="space-y-2">
-            <span class="text-xs font-mono text-[#0891B2] font-bold">01</span>
-            <div class="editorial-word text-4xl sm:text-6xl font-black text-[#111827] tracking-tighter">AI.</div>
-            <p class="text-xs text-[#64748B]">Agents, speech recognition & models</p>
+          class="pt-16 sm:pt-20 grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 border-t border-[#E2E8F0] dark:border-slate-800 mt-16">
+          <div class="brand-word-col space-y-2 group">
+            <span class="text-xs font-mono text-[#0891B2] dark:text-[#22D3EE] font-bold">01</span>
+            <div class="editorial-word font-black text-[#111827] dark:text-[#F8FAFC]">AI.</div>
+            <p class="text-xs text-[#64748B] dark:text-[#94A3B8] leading-relaxed font-medium">Agents, speech recognition
+              &amp; models</p>
           </div>
-          <div class="space-y-2">
-            <span class="text-xs font-mono text-[#0891B2] font-bold">02</span>
-            <div class="editorial-word text-4xl sm:text-6xl font-black text-[#111827] tracking-tighter">DATA.</div>
-            <p class="text-xs text-[#64748B]">Analytics, EDA & regression pipelines</p>
+          <div class="brand-word-col space-y-2 group">
+            <span class="text-xs font-mono text-[#0891B2] dark:text-[#22D3EE] font-bold">02</span>
+            <div class="editorial-word font-black text-[#111827] dark:text-[#F8FAFC]">DATA.</div>
+            <p class="text-xs text-[#64748B] dark:text-[#94A3B8] leading-relaxed font-medium">Analytics, EDA &amp;
+              regression pipelines</p>
           </div>
-          <div class="space-y-2">
-            <span class="text-xs font-mono text-[#0891B2] font-bold">03</span>
-            <div class="editorial-word text-4xl sm:text-6xl font-black text-[#111827] tracking-tighter">SOFTWARE.</div>
-            <p class="text-xs text-[#64748B]">Scalable web systems & cloud DBs</p>
+          <div class="brand-word-col space-y-2 group">
+            <span class="text-xs font-mono text-[#0891B2] dark:text-[#22D3EE] font-bold">03</span>
+            <div class="editorial-word font-black text-[#111827] dark:text-[#F8FAFC]">SOFTWARE.</div>
+            <p class="text-xs text-[#64748B] dark:text-[#94A3B8] leading-relaxed font-medium">Scalable web systems &amp;
+              cloud DBs</p>
           </div>
-          <div class="space-y-2">
-            <span class="text-xs font-mono text-[#0891B2] font-bold">04</span>
-            <div class="editorial-word text-4xl sm:text-6xl font-black text-[#0891B2] tracking-tighter">DESIGN.</div>
-            <p class="text-xs text-[#64748B]">Human-centered digital polish</p>
+          <div class="brand-word-col space-y-2 group">
+            <span class="text-xs font-mono text-[#0891B2] dark:text-[#22D3EE] font-bold">04</span>
+            <div class="editorial-word font-black text-[#0891B2] dark:text-[#22D3EE]">DESIGN.</div>
+            <p class="text-xs text-[#64748B] dark:text-[#94A3B8] leading-relaxed font-medium">Human-centered digital
+              polish</p>
           </div>
         </div>
 
@@ -399,20 +401,20 @@
           <div class="lg:col-span-7 space-y-6">
             <div class="space-y-3">
               <span class="text-xs uppercase font-mono tracking-widest text-[#0891B2] font-bold">About Me</span>
-              <h2 class="text-3xl sm:text-5xl font-black text-[#111827] tracking-tight leading-tight">
-                Driven by purpose.<br>
-                Powered by code.
+              <h2 class="text-3xl sm:text-5xl font-black text-[#111827] dark:text-[#F8FAFC] tracking-tight leading-tight">
+                Turning ideas into<br>
+                impactful digital solutions.
               </h2>
             </div>
 
-            <p class="text-lg sm:text-xl text-[#111827] leading-relaxed font-medium">
-              I'm a Computer Science & Engineering student passionate about Artificial Intelligence, Data Analytics,
-              Software Development, and building technology that solves real problems.
+            <p class="text-base sm:text-lg text-[#111827] dark:text-[#F8FAFC] leading-relaxed font-medium">
+              I’m a Computer Science &amp; Engineering student passionate about <strong class="text-[#0891B2] dark:text-[#22D3EE] font-semibold">technology, AI, and building meaningful digital experiences</strong>. I enjoy turning ideas into practical solutions through web development, cloud technologies, AI-assisted development, and modern tools.
             </p>
-            <p class="text-base text-[#64748B] leading-relaxed">
-              I combine mathematical rigor in supervised regression pipelines with human-centered empathy in web
-              interfaces. Whether developing AI-powered voice safety platforms or exploring autonomous developer agent
-              workflows, I focus on turning complex technical capability into intuitive digital experiences.
+            <p class="text-sm sm:text-base text-[#64748B] dark:text-[#94A3B8] leading-relaxed">
+              I’m naturally curious and love learning by <strong class="text-[#111827] dark:text-[#F8FAFC] font-semibold">building, experimenting, and solving real-world problems</strong>. From developing responsive web applications and integrating Firebase services to exploring AI agents and emerging technologies, I’m always looking for opportunities to expand my skills and create something useful.
+            </p>
+            <p class="text-sm sm:text-base text-[#64748B] dark:text-[#94A3B8] leading-relaxed">
+              I believe great technology comes from a combination of <strong class="text-[#111827] dark:text-[#F8FAFC] font-semibold">curiosity, creativity, collaboration, and continuous learning</strong>. My goal is to keep growing as a developer, work on impactful projects, and use technology to turn ideas into solutions that make a difference.
             </p>
 
 
@@ -786,11 +788,13 @@
               or speak live via microphone.
             </p>
             <div class="flex flex-wrap gap-3 pt-2">
-              <button id="trigger-sim-voice-btn" class="magnetic-btn btn-apple-cyan px-6 py-3 text-xs font-bold">
-                Simulate Safe Word Trigger ⚡
+              <button id="trigger-sim-voice-btn"
+                class="magnetic-btn btn-apple-cyan px-6 py-3 text-xs font-bold flex items-center gap-1.5">
+                <span>Simulate Safe Word Trigger</span> <i data-lucide="zap" class="w-3.5 h-3.5"></i>
               </button>
-              <button id="trigger-live-mic-btn" class="magnetic-btn btn-apple-white px-6 py-3 text-xs font-bold">
-                Live Mic Test 🎙️
+              <button id="trigger-live-mic-btn"
+                class="magnetic-btn btn-apple-white px-6 py-3 text-xs font-bold flex items-center gap-1.5">
+                <span>Live Mic Test</span> <i data-lucide="mic" class="w-3.5 h-3.5"></i>
               </button>
             </div>
           </div>
@@ -907,30 +911,156 @@
   </div>
 
   <!-- =========================================================================
-       FOOTER
+       FOOTER: REFINED APPLE-GRADE MODERN FOOTER
        ========================================================================= -->
-  <footer class="py-16 border-t border-[#E2E8F0] text-xs font-mono text-[#64748B] bg-[#F1F5F9] relative z-10">
-    <div class="max-w-5xl mx-auto px-6 sm:px-8 space-y-8">
-      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-        <div>
-          <span class="text-sm font-bold text-[#111827]">Riddhi Zunjarrao</span>
-          <p class="text-[11px] mt-0.5">B.Tech CSE Student • Aspiring Data Analyst & AI Innovator</p>
+  <footer
+    class="pt-20 pb-12 border-t border-[#E2E8F0] dark:border-white/10 bg-white/70 dark:bg-[#0B0F17]/95 backdrop-blur-xl relative z-10 overflow-hidden">
+    <div class="max-w-6xl mx-auto px-6 sm:px-8 relative z-10">
+      <!-- Main Footer Grid -->
+      <div
+        class="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 border-b border-[#E2E8F0] dark:border-white/10 items-start">
+
+        <!-- Left: Brand, Bio & Social Links (6 cols) -->
+        <div class="lg:col-span-6 space-y-6">
+          <div class="space-y-2">
+            <a href="#home"
+              class="text-3xl font-extrabold tracking-tight text-[#111827] dark:text-[#F8FAFC] hover:opacity-85 transition-opacity inline-block"
+              aria-label="Riddhi Zunjarrao">
+              Riddhi Zunjarrao<span class="text-[#06B6D4]">.</span>
+            </a>
+            <p class="text-xs font-mono text-[#0891B2] dark:text-[#22D3EE] font-bold tracking-wider uppercase">
+              AI • Data • Software • Innovation
+            </p>
+          </div>
+
+          <p class="text-sm text-[#64748B] dark:text-[#94A3B8] leading-relaxed max-w-md">
+            B.Tech Computer Science &amp; Engineering undergraduate at ITM Skills University. Exploring AI agent
+            architectures, predictive data pipelines, and human-centric software.
+          </p>
+
+          <!-- Social Icon Pills Row -->
+          <div class="flex flex-wrap items-center gap-3 pt-2">
+            <a href="https://github.com/riddhi-z1465" target="_blank" rel="noopener noreferrer"
+              class="magnetic-btn footer-social-pill px-4 py-2 rounded-full border border-[#E2E8F0] dark:border-white/10 bg-white dark:bg-[#131B2E] text-xs font-medium text-[#111827] dark:text-[#F8FAFC] hover:border-[#A5F3FC] dark:hover:border-[#22D3EE]/40 hover:text-[#0891B2] dark:hover:text-[#22D3EE] hover:bg-[#ECFEFF] dark:hover:bg-[#06B6D4]/10 shadow-xs flex items-center gap-2 transition-all">
+              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+              </svg>
+              <span>GitHub</span>
+              <span class="text-[10px] text-[#94A3B8]">↗</span>
+            </a>
+
+            <a href="https://linkedin.com/in/riddhizunjarrao" target="_blank" rel="noopener noreferrer"
+              class="magnetic-btn footer-social-pill px-4 py-2 rounded-full border border-[#E2E8F0] dark:border-white/10 bg-white dark:bg-[#131B2E] text-xs font-medium text-[#111827] dark:text-[#F8FAFC] hover:border-[#A5F3FC] dark:hover:border-[#22D3EE]/40 hover:text-[#0891B2] dark:hover:text-[#22D3EE] hover:bg-[#ECFEFF] dark:hover:bg-[#06B6D4]/10 shadow-xs flex items-center gap-2 transition-all">
+              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
+              <span>LinkedIn</span>
+              <span class="text-[10px] text-[#94A3B8]">↗</span>
+            </a>
+
+            <a href="mailto:riddhizunjarrao669@gmail.com"
+              class="magnetic-btn footer-social-pill px-4 py-2 rounded-full border border-[#E2E8F0] dark:border-white/10 bg-white dark:bg-[#131B2E] text-xs font-medium text-[#111827] dark:text-[#F8FAFC] hover:border-[#A5F3FC] dark:hover:border-[#22D3EE]/40 hover:text-[#0891B2] dark:hover:text-[#22D3EE] hover:bg-[#ECFEFF] dark:hover:bg-[#06B6D4]/10 shadow-xs flex items-center gap-2 transition-all">
+              <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+              <span>Email</span>
+              <span class="text-[10px] text-[#94A3B8]">↗</span>
+            </a>
+
+            <a href="assets/resume.pdf" target="_blank"
+              class="magnetic-btn footer-social-pill px-4 py-2 rounded-full border border-[#A5F3FC] dark:border-[#22D3EE]/30 bg-[#ECFEFF]/80 dark:bg-[#06B6D4]/15 text-xs font-bold text-[#0891B2] dark:text-[#22D3EE] hover:bg-[#ECFEFF] dark:hover:bg-[#06B6D4]/25 shadow-xs flex items-center gap-2 transition-all">
+              <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+              <span>Resume PDF</span>
+              <span class="text-[10px]">↗</span>
+            </a>
+          </div>
         </div>
+
+        <!-- Right: 2 Navigation Groups (6 cols) -->
+        <div class="lg:col-span-6 grid grid-cols-2 gap-8 sm:gap-12 lg:pl-10">
+          <!-- Navigation -->
+          <div class="space-y-4">
+            <h4 class="text-xs uppercase font-mono tracking-widest text-[#0891B2] dark:text-[#22D3EE] font-bold">
+              Navigation
+            </h4>
+            <ul class="space-y-2.5 text-sm">
+              <li><a href="#home"
+                  class="footer-nav-link text-[#64748B] dark:text-[#94A3B8] hover:text-[#0891B2] dark:hover:text-[#22D3EE] transition-colors">Home</a>
+              </li>
+              <li><a href="#journey"
+                  class="footer-nav-link text-[#64748B] dark:text-[#94A3B8] hover:text-[#0891B2] dark:hover:text-[#22D3EE] transition-colors">The
+                  Journey</a>
+              </li>
+              <li><a href="#what-i-build"
+                  class="footer-nav-link text-[#64748B] dark:text-[#94A3B8] hover:text-[#0891B2] dark:hover:text-[#22D3EE] transition-colors">What
+                  I Build</a></li>
+              <li><a href="#skills"
+                  class="footer-nav-link text-[#64748B] dark:text-[#94A3B8] hover:text-[#0891B2] dark:hover:text-[#22D3EE] transition-colors">Skills
+                  Arsenal</a>
+              </li>
+              <li><a href="#projects"
+                  class="footer-nav-link text-[#64748B] dark:text-[#94A3B8] hover:text-[#0891B2] dark:hover:text-[#22D3EE] transition-colors">Selected
+                  Works</a>
+              </li>
+              <li><a href="#experience"
+                  class="footer-nav-link text-[#64748B] dark:text-[#94A3B8] hover:text-[#0891B2] dark:hover:text-[#22D3EE] transition-colors">Experience</a>
+              </li>
+              <li><a href="#contact"
+                  class="footer-nav-link text-[#64748B] dark:text-[#94A3B8] hover:text-[#0891B2] dark:hover:text-[#22D3EE] transition-colors">Get
+                  in Touch</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Featured Works -->
+          <div class="space-y-4">
+            <h4 class="text-xs uppercase font-mono tracking-widest text-[#0891B2] dark:text-[#22D3EE] font-bold">
+              Featured Works
+            </h4>
+            <ul class="space-y-2.5 text-sm">
+              <li><a href="#projects"
+                  class="footer-nav-link text-[#64748B] dark:text-[#94A3B8] hover:text-[#0891B2] dark:hover:text-[#22D3EE] transition-colors">WeSafe
+                  AI Platform</a></li>
+              <li><a href="#projects"
+                  class="footer-nav-link text-[#64748B] dark:text-[#94A3B8] hover:text-[#0891B2] dark:hover:text-[#22D3EE] transition-colors">Recall-Lite
+                  RAG</a></li>
+              <li><a href="#projects"
+                  class="footer-nav-link text-[#64748B] dark:text-[#94A3B8] hover:text-[#0891B2] dark:hover:text-[#22D3EE] transition-colors">Salary
+                  Regression</a></li>
+              <li><a href="#projects"
+                  class="footer-nav-link text-[#64748B] dark:text-[#94A3B8] hover:text-[#0891B2] dark:hover:text-[#22D3EE] transition-colors">Housing
+                  Valuation</a></li>
+              <li><a href="#certifications"
+                  class="footer-nav-link text-[#64748B] dark:text-[#94A3B8] hover:text-[#0891B2] dark:hover:text-[#22D3EE] transition-colors">Certifications</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Metadata Bar -->
+      <div
+        class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#64748B] dark:text-[#94A3B8]">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="font-medium text-[#111827] dark:text-[#F8FAFC]">© 2026 Riddhi Zunjarrao.</span>
+          <span class="hidden sm:inline text-[#CBD5E1] dark:text-white/20">•</span>
+          <span>Crafted with Vanilla JS &amp; GSAP</span>
+        </div>
+
         <div class="flex items-center gap-6">
           <a href="https://github.com/riddhi-z1465" target="_blank" rel="noopener noreferrer"
-            class="hover:text-[#0891B2] transition-colors font-medium">GitHub</a>
+            class="hover:text-[#0891B2] dark:hover:text-[#22D3EE] transition-colors">GitHub</a>
           <a href="https://linkedin.com/in/riddhizunjarrao" target="_blank" rel="noopener noreferrer"
-            class="hover:text-[#0891B2] transition-colors font-medium">LinkedIn</a>
-          <a href="assets/resume.pdf" target="_blank"
-            class="hover:text-[#0891B2] transition-colors font-medium">Resume</a>
-          <a href="mailto:riddhizunjarrao669@gmail.com"
-            class="hover:text-[#0891B2] transition-colors font-medium">Email</a>
+            class="hover:text-[#0891B2] dark:hover:text-[#22D3EE] transition-colors">LinkedIn</a>
+          <a href="#home"
+            class="hover:text-[#0891B2] dark:hover:text-[#22D3EE] transition-colors font-bold flex items-center gap-1">
+            <span>Back to top</span>
+            <i data-lucide="arrow-up" class="w-3.5 h-3.5"></i>
+          </a>
         </div>
       </div>
-      <div class="pt-6 border-t border-[#E2E8F0] flex items-center justify-between text-[11px]">
-        <span>© 2026 Riddhi Zunjarrao • Built with Vanilla JS & GSAP</span>
-        <span class="text-[#0891B2] font-semibold">Cyan Edition</span>
-      </div>
+
     </div>
   </footer>
 

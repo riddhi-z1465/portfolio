@@ -422,12 +422,21 @@ html.dark ::-webkit-scrollbar-thumb:hover {
 
 /* Editorial Typography Words */
 .editorial-word {
+  font-size: clamp(1.35rem, 2vw, 2.15rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
   opacity: 0.25;
-  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), color 0.5s ease;
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease, transform 0.3s ease;
 }
 
-.editorial-word.active {
+.editorial-word.active,
+.brand-word-col:hover .editorial-word {
   opacity: 1;
+}
+
+.brand-word-col:hover .editorial-word {
+  transform: translateX(2px);
 }
 
 /* Multilingual Loader Layer */
@@ -546,29 +555,66 @@ html.dark ::-webkit-scrollbar-thumb:hover {
 }
 
 /* Certificate Card Styles */
+.cert-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 1.25rem;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.cert-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #06B6D4, #0891B2, transparent);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.cert-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(6, 182, 212, 0.35);
+  box-shadow: 0 16px 36px -10px rgba(6, 182, 212, 0.15), 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.cert-card:hover::before {
+  opacity: 1;
+}
+
 .cert-card-img-wrap {
   position: relative;
   overflow: hidden;
-  background-color: #F8FAFC;
+  background: linear-gradient(135deg, #F8FAFC 0%, #EEF2F6 100%);
   border-radius: 0.875rem;
-  border: 1px solid var(--border-subtle);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid #E2E8F0;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.02);
 }
 
 .cert-card-img-wrap:hover {
-  border-color: var(--color-cyan-border);
-  box-shadow: 0 4px 20px rgba(6, 182, 212, 0.12);
+  border-color: #A5F3FC;
+  box-shadow: 0 10px 28px rgba(6, 182, 212, 0.15), inset 0 2px 6px rgba(0, 0, 0, 0.02);
 }
 
 .cert-card-img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.07));
+  border-radius: 6px;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
 }
 
 .cert-card-img-wrap:hover .cert-card-img {
-  transform: scale(1.03);
+  transform: scale(1.035);
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.12));
 }
 
 /* Project Filter Buttons */
@@ -1004,8 +1050,13 @@ html.dark .social-link-item:hover {
 
 /* Certificate Cards & Modal in Dark Mode */
 html.dark .cert-card-img-wrap {
-  background-color: #0E1524;
-  border-color: rgba(255, 255, 255, 0.1);
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+html.dark .cert-card-img-wrap:hover {
+  border-color: rgba(34, 211, 238, 0.4);
+  box-shadow: 0 10px 30px rgba(6, 182, 212, 0.2);
 }
 
 html.dark .cert-modal-dialog {
@@ -1155,4 +1206,28 @@ html.dark svg text[fill="#0891B2"] {
 
 html.dark svg line[stroke="#E2E8F0"] {
   stroke: rgba(255, 255, 255, 0.12);
+}
+
+/* ==========================================================================
+   MODERN FOOTER ENHANCEMENTS
+   ========================================================================== */
+.footer-nav-link {
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
+}
+
+.footer-nav-link:hover {
+  transform: translateX(4px);
+}
+
+.footer-social-badge,
+.footer-social-pill {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.footer-social-badge:hover,
+.footer-social-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(6, 182, 212, 0.14);
 }

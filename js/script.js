@@ -633,13 +633,13 @@ function renderJourney() {
         <div class="journey-step-badge flex items-center justify-center font-mono font-bold text-xs shrink-0 z-10">
           ${item.step}
         </div>
-        <div class="p-6 sm:p-8 rounded-3xl bg-white/90 backdrop-blur-xl border border-[rgba(6,182,212,0.14)] w-full shadow-sm hover:border-[#A5F3FC] hover:shadow-md transition-all space-y-2">
+        <div class="p-6 sm:p-8 rounded-3xl bg-white/90 dark:bg-slate-900/80 backdrop-blur-xl border border-[rgba(6,182,212,0.14)] dark:border-slate-800/80 w-full shadow-sm hover:border-[#A5F3FC] dark:hover:border-cyan-400/40 hover:shadow-md transition-all space-y-2.5">
           <div class="flex flex-wrap items-center justify-between gap-2">
-            <span class="text-xs font-mono text-[#0891B2] font-bold uppercase tracking-wider">${item.tag}</span>
-            <span class="text-xs font-mono text-[#64748B]">${item.period}</span>
+            <span class="text-xs font-mono text-[#0891B2] dark:text-[#22D3EE] font-bold uppercase tracking-wider">${item.tag}</span>
+            ${item.period ? `<span class="text-xs font-mono text-[#64748B] dark:text-[#94A3B8]">${item.period}</span>` : ''}
           </div>
-          <h3 class="text-xl sm:text-2xl font-bold text-[#111827] tracking-tight">${item.title}</h3>
-          <p class="text-sm sm:text-base text-[#64748B] leading-relaxed">${item.description}</p>
+          <h3 class="text-xl sm:text-2xl font-bold text-[#111827] dark:text-[#F8FAFC] tracking-tight">${item.title}</h3>
+          <p class="text-sm sm:text-base text-[#64748B] dark:text-[#94A3B8] leading-relaxed">${item.description}</p>
         </div>
       </div>
     `).join('')}
@@ -653,24 +653,24 @@ function renderWhatIBuild() {
   container.innerHTML = PORTFOLIO_DATA.whatIBuild.map(item => `
     <div class="what-i-build-card space-y-6">
       <div class="flex items-center justify-between">
-        <span class="text-xs font-mono text-[#0891B2] font-bold">${item.number}</span>
-        <span class="text-xs font-mono text-[#64748B] uppercase">${item.tools}</span>
+        <span class="text-xs font-mono text-[#0891B2] dark:text-[#22D3EE] font-bold">${item.number}</span>
+        <span class="text-xs font-mono text-[#64748B] dark:text-[#94A3B8] uppercase">${item.tools}</span>
       </div>
 
       <div class="space-y-2">
-        <h3 class="text-2xl sm:text-3xl font-black text-[#111827] tracking-tight">${item.title}</h3>
-        <p class="text-sm font-semibold text-[#0891B2]">${item.tagline}</p>
+        <h3 class="text-2xl sm:text-3xl font-black text-[#111827] dark:text-[#F8FAFC] tracking-tight">${item.title}</h3>
+        <p class="text-sm font-semibold text-[#0891B2] dark:text-[#22D3EE]">${item.tagline}</p>
       </div>
 
-      <p class="text-sm text-[#64748B] leading-relaxed">
+      <p class="text-sm text-[#64748B] dark:text-[#94A3B8] leading-relaxed">
         ${item.description}
       </p>
 
-      <div class="pt-4 border-t border-[#E2E8F0] space-y-2">
-        <span class="text-xs uppercase font-mono tracking-wider text-[#64748B] font-semibold block">Key Capabilities</span>
+      <div class="pt-4 border-t border-[#E2E8F0] dark:border-slate-800 space-y-2">
+        <span class="text-xs uppercase font-mono tracking-wider text-[#64748B] dark:text-[#94A3B8] font-semibold block">Key Capabilities</span>
         <div class="flex flex-wrap gap-2">
           ${item.capabilities.map(cap => `
-            <span class="text-xs px-3 py-1 rounded-full bg-white border border-[#E2E8F0] text-[#111827] font-medium hover:border-[#06B6D4] hover:text-[#0891B2] hover:bg-[#ECFEFF] transition-all">
+            <span class="text-xs px-3 py-1 rounded-full bg-white dark:bg-slate-800/80 border border-[#E2E8F0] dark:border-slate-700/80 text-[#111827] dark:text-[#F8FAFC] font-medium hover:border-[#06B6D4] hover:text-[#0891B2] dark:hover:text-[#22D3EE] hover:bg-[#ECFEFF] dark:hover:bg-cyan-950/40 transition-all">
               ${cap}
             </span>
           `).join('')}
@@ -1060,69 +1060,107 @@ function renderCertifications() {
     const hasCredId = Boolean(cert.credentialId);
 
     return `
-    <div class="cert-card p-5 sm:p-6 rounded-2xl bg-white/90 backdrop-blur-xl border border-[#E2E8F0] hover:border-[#A5F3FC] hover:shadow-md transition-all flex flex-col justify-between group">
+    <div class="cert-card p-5 sm:p-6 rounded-2xl flex flex-col justify-between group transition-all">
       <div>
         <!-- Prominent Certificate Thumbnail Frame -->
-        <div class="cert-card-img-wrap aspect-[16/11] sm:aspect-[16/10] w-full mb-4 relative cursor-pointer flex items-center justify-center bg-white rounded-xl border border-[#E2E8F0] overflow-hidden shadow-xs"
+        <div class="cert-card-img-wrap aspect-[16/11] sm:aspect-[16/10] w-full mb-5 relative cursor-pointer flex items-center justify-center p-3 sm:p-4"
              data-cert-id="${cert.id}"
              role="button"
              tabindex="0"
              aria-label="View ${cert.title} certificate image">
           
+          <!-- Top-Left Verified Pill -->
+          <div class="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/95 dark:bg-slate-900/90 backdrop-blur-md border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-[10px] font-mono font-bold shadow-xs pointer-events-none">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>Verified</span>
+          </div>
+
+          <!-- Top-Right Full View Icon -->
+          <div class="absolute top-2.5 right-2.5 z-10 w-7 h-7 rounded-full bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 opacity-0 group-hover:opacity-100 transition-all duration-200 flex items-center justify-center shadow-xs pointer-events-none">
+            <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
+          </div>
+
           <img src="${cert.image}"
                alt="${cert.title} Certificate"
                loading="lazy"
-               class="cert-card-img w-full h-full object-contain p-2 transition-transform duration-300"
+               class="cert-card-img w-full h-full object-contain"
                onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.classList.remove('hidden');" />
           
           <!-- Fallback if image fails to load -->
-          <div class="cert-card-fallback hidden flex flex-col items-center justify-center p-6 text-center w-full h-full bg-[#F8FAFC]">
-            <div class="w-10 h-10 rounded-full bg-[#ECFEFF] text-[#0891B2] flex items-center justify-center mb-2">
+          <div class="cert-card-fallback hidden flex flex-col items-center justify-center p-6 text-center w-full h-full bg-slate-50 dark:bg-slate-900 rounded-lg">
+            <div class="w-10 h-10 rounded-full bg-cyan-50 dark:bg-cyan-950/60 text-cyan-600 dark:text-cyan-400 flex items-center justify-center mb-2 border border-cyan-200 dark:border-cyan-800">
               <i data-lucide="award" class="w-5 h-5"></i>
             </div>
-            <span class="text-xs font-semibold text-[#111827] line-clamp-1">${cert.organization}</span>
-            <span class="text-[11px] font-mono text-[#64748B] mt-0.5">Click to Preview</span>
+            <span class="text-xs font-semibold text-slate-900 dark:text-slate-100 line-clamp-1">${cert.organization}</span>
+            <span class="text-[11px] font-mono text-slate-500 dark:text-slate-400 mt-0.5">Click to Preview</span>
           </div>
 
-          <!-- Subtle Hover Overlay -->
-          <div class="absolute inset-0 bg-[#0891B2]/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
-            <span class="bg-white/95 backdrop-blur-sm text-[#0891B2] text-[11px] font-mono font-bold px-3 py-1.5 rounded-full shadow-sm border border-[#A5F3FC] flex items-center gap-1.5 transform translate-y-1 group-hover:translate-y-0 transition-transform">
-              <i data-lucide="zoom-in" class="w-3.5 h-3.5"></i> Expand Certificate
+          <!-- Hover Overlay with Zoom Prompt -->
+          <div class="absolute inset-0 bg-cyan-950/10 dark:bg-cyan-400/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-3 pointer-events-none">
+            <span class="bg-white/95 dark:bg-slate-900/95 backdrop-blur-md text-cyan-700 dark:text-cyan-300 text-[11px] font-mono font-bold px-3 py-1.5 rounded-full shadow-md border border-cyan-200 dark:border-cyan-800/80 flex items-center gap-1.5 transform translate-y-1.5 group-hover:translate-y-0 transition-transform">
+              <i data-lucide="zoom-in" class="w-3.5 h-3.5 text-cyan-500"></i> Expand Certificate
             </span>
           </div>
         </div>
 
-        <!-- Certificate Details Below Image -->
-        <div class="space-y-2">
+        <!-- Certificate Details -->
+        <div class="space-y-2.5">
           <div class="flex items-center justify-between gap-2 flex-wrap">
-            <span class="text-xs font-mono text-[#0891B2] font-bold tracking-tight">${cert.category || 'Certification'}</span>
-            ${cert.issueDate ? `<span class="text-[11px] font-mono text-[#64748B] bg-[#F1F5F9] px-2 py-0.5 rounded border border-[#E2E8F0]">${cert.issueDate}</span>` : ''}
+            <span class="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-cyan-700 dark:text-cyan-400 bg-cyan-50 dark:bg-cyan-950/60 px-2.5 py-0.5 rounded-full border border-cyan-200/70 dark:border-cyan-800/50">
+              <span class="w-1.5 h-1.5 rounded-full bg-cyan-500"></span>
+              ${cert.category || 'Certification'}
+            </span>
+            ${cert.issueDate ? `
+              <span class="text-[11px] font-mono text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800/70 px-2 py-0.5 rounded-md border border-slate-200 dark:border-slate-700/60 inline-flex items-center gap-1">
+                <i data-lucide="calendar" class="w-3 h-3 text-slate-400"></i>
+                ${cert.issueDate}
+              </span>` : ''}
           </div>
 
-          <h4 class="text-base sm:text-lg font-bold text-[#111827] tracking-tight leading-snug pt-0.5">${cert.title}</h4>
+          <h4 class="text-base sm:text-lg font-bold text-slate-900 dark:text-slate-100 tracking-tight leading-snug pt-0.5 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
+            ${cert.title}
+          </h4>
           
-          <p class="text-xs text-[#64748B] font-medium leading-relaxed">
-            Issuing Organization: <span class="text-[#111827] font-semibold">${cert.organization}</span>
-          </p>
+          <div class="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 font-medium">
+            <i data-lucide="building-2" class="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400 shrink-0"></i>
+            <span class="truncate">Issuing Organization: <strong class="text-slate-900 dark:text-slate-200 font-semibold">${cert.organization}</strong></span>
+          </div>
 
-          ${hasCredId ? `
-            <div class="pt-1">
-              <div class="text-[11px] font-mono text-[#64748B] bg-[#F8FAFC] px-2.5 py-1 rounded-md inline-flex items-center gap-1.5 border border-[#E2E8F0] max-w-full">
-                <span class="text-[#0891B2] font-semibold shrink-0">Credential ID:</span>
-                <span class="select-all truncate font-mono text-[#111827]">${cert.credentialId}</span>
+          <!-- Credential ID / Verification Status Chip -->
+          <div class="pt-1">
+            ${hasCredId ? `
+              <div class="text-[11px] font-mono text-slate-600 dark:text-slate-300 bg-slate-50 dark:bg-slate-800/60 px-2.5 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700/60 flex items-center justify-between gap-2 max-w-full">
+                <div class="flex items-center gap-1.5 min-w-0 truncate">
+                  <span class="text-cyan-600 dark:text-cyan-400 font-bold shrink-0">Credential ID:</span>
+                  <span class="select-all truncate font-mono text-slate-800 dark:text-slate-200">${cert.credentialId}</span>
+                </div>
+                <button type="button" class="copy-cred-id-btn text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors p-1 rounded hover:bg-slate-200/60 dark:hover:bg-slate-700 shrink-0" data-cred-id="${cert.credentialId}" title="Copy Credential ID" aria-label="Copy Credential ID">
+                  <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                </button>
               </div>
-            </div>
-          ` : ''}
+            ` : `
+              <div class="text-[11px] font-mono text-slate-500 dark:text-slate-400 bg-slate-50/60 dark:bg-slate-800/30 px-2.5 py-1.5 rounded-lg border border-slate-200/60 dark:border-slate-700/40 flex items-center justify-between gap-2">
+                <div class="flex items-center gap-1.5">
+                  <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-500"></i>
+                  <span>Institutional Credential</span>
+                </div>
+                <span class="text-[10px] text-slate-400 font-medium">Direct Verified</span>
+              </div>
+            `}
+          </div>
         </div>
       </div>
 
-      <!-- Action Button -->
-      <div class="pt-4 mt-5 border-t border-[#E2E8F0] flex items-center justify-between">
-        <button type="button" class="btn-apple-link text-xs font-bold view-cert-btn inline-flex items-center gap-1.5" data-cert-id="${cert.id}">
+      <!-- Action Button Footer -->
+      <div class="pt-4 mt-5 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between gap-2">
+        <button type="button" class="btn-apple-primary px-3.5 py-1.5 text-xs font-semibold rounded-full view-cert-btn inline-flex items-center gap-1.5" data-cert-id="${cert.id}">
+          <i data-lucide="eye" class="w-3.5 h-3.5"></i>
           <span>View Certificate</span>
-          <span class="link-arrow">→</span>
         </button>
-        <span class="text-[11px] font-mono text-[#94A3B8]">Full View ↗</span>
+        <button type="button" class="text-xs font-semibold text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 view-cert-btn inline-flex items-center gap-1 transition-colors px-2 py-1" data-cert-id="${cert.id}">
+          <span>Full View</span>
+          <span class="link-arrow">↗</span>
+        </button>
       </div>
     </div>
     `;
@@ -1220,6 +1258,26 @@ function initCertificateModal() {
   const container = document.getElementById('certifications-container');
   if (container) {
     container.addEventListener('click', (e) => {
+      // Check for copy button first
+      const copyBtn = e.target.closest('.copy-cred-id-btn');
+      if (copyBtn) {
+        e.preventDefault();
+        e.stopPropagation();
+        const credId = copyBtn.getAttribute('data-cred-id');
+        if (credId && navigator.clipboard) {
+          navigator.clipboard.writeText(credId).then(() => {
+            const originalHTML = copyBtn.innerHTML;
+            copyBtn.innerHTML = '<i data-lucide="check" class="w-3.5 h-3.5 text-emerald-500"></i>';
+            if (window.lucide) window.lucide.createIcons();
+            setTimeout(() => {
+              copyBtn.innerHTML = originalHTML;
+              if (window.lucide) window.lucide.createIcons();
+            }, 2000);
+          }).catch(err => console.error('Copy failed:', err));
+        }
+        return;
+      }
+
       const trigger = e.target.closest('[data-cert-id]');
       if (!trigger) return;
 
@@ -1340,7 +1398,7 @@ function initCaseStudyModal() {
       if (simLog) simLog.textContent = 'Detected phrase: "EMERGENCY" (Confidence: 99.4%)';
 
       setTimeout(() => {
-        showToast('🚨 SOS Dispatched! GPS: 19.0330° N, 73.0297° E | Alert pushed to 3 trusted contacts.');
+        showToast('SOS Dispatched! GPS: 19.0330° N, 73.0297° E | Alert pushed to 3 trusted contacts.', 'shield-alert');
         if (simStatus) simStatus.innerHTML = '<span class="text-emerald-600 font-bold">SOS Dispatched Successfully</span>';
         if (simRadar) {
           simRadar.style.backgroundColor = '#111127';
@@ -1354,7 +1412,7 @@ function initCaseStudyModal() {
     liveMicBtn.addEventListener('click', () => {
       const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
       if (!SpeechRecognition) {
-        showToast('Web Speech API is not supported in this browser. Running automated simulation.');
+        showToast('Web Speech API is not supported in this browser. Running automated simulation.', 'alert-triangle');
         simVoiceBtn.click();
         return;
       }
@@ -1372,17 +1430,17 @@ function initCaseStudyModal() {
           if (simLog) simLog.textContent = `Heard: "${transcript}"`;
 
           if (transcript.includes('emergency') || transcript.includes('help') || transcript.includes('safe')) {
-            showToast(`🚨 Safe word detected ("${transcript}"). Triggering emergency broadcast!`);
+            showToast(`Safe word detected ("${transcript}"). Triggering emergency broadcast!`, 'shield-alert');
             if (simStatus) simStatus.innerHTML = '<span class="text-emerald-600 font-bold">Safe Word Matched & SOS Broadcasted</span>';
           } else {
-            showToast(`Recognized "${transcript}". Say "Emergency" to trigger.`);
+            showToast(`Recognized "${transcript}". Say "Emergency" to trigger.`, 'mic');
             if (simStatus) simStatus.textContent = 'Status: Idle / Ready';
           }
         };
 
         recognition.onerror = () => {
           if (simStatus) simStatus.textContent = 'Status: Idle / Ready';
-          showToast('Mic input ended.');
+          showToast('Mic input ended.', 'mic-off');
         };
       } catch (err) {
         simVoiceBtn.click();
@@ -1662,26 +1720,28 @@ function initContactForm() {
     submitBtn.disabled = true;
 
     setTimeout(() => {
-      showToast(`Thank you, ${name}! Your message was sent successfully.`);
+      showToast(`Thank you, ${name}! Your message was sent successfully.`, 'check-circle-2');
       form.reset();
-      submitBtn.innerHTML = 'Message Sent ✓';
+      submitBtn.innerHTML = '<span>Message Sent</span> <i data-lucide="check" class="w-4 h-4 inline ml-1"></i>';
+      if (window.lucide) window.lucide.createIcons();
 
       setTimeout(() => {
         submitBtn.innerHTML = originalText;
         submitBtn.disabled = false;
+        if (window.lucide) window.lucide.createIcons();
       }, 3000);
     }, 700);
   });
 }
 
-function showToast(message) {
+function showToast(message, iconName = 'check-circle-2') {
   const container = document.getElementById('toast-container');
   if (!container) return;
 
   const toast = document.createElement('div');
   toast.className = 'toast-message';
   toast.innerHTML = `
-    <i data-lucide="check-circle-2" class="w-4 h-4 text-[#0891B2] shrink-0"></i>
+    <i data-lucide="${iconName}" class="w-4 h-4 text-[#0891B2] shrink-0"></i>
     <span>${message}</span>
   `;
 
@@ -1760,7 +1820,7 @@ function initThemeToggle() {
       }
 
       updateThemeUI(currentTheme);
-      showToast(currentTheme === 'dark' ? '🌙 Dark mode enabled' : '☀️ Light mode enabled');
+      showToast(currentTheme === 'dark' ? 'Dark mode enabled' : 'Light mode enabled', currentTheme === 'dark' ? 'moon' : 'sun');
     });
   });
 }
