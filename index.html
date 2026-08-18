@@ -66,6 +66,22 @@
 
   <!-- Custom Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
+
+  <!-- Instant Theme Initializer (Default: Light Mode) -->
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem('portfolio-theme');
+      if (savedTheme === 'dark') {
+        document.documentElement.classList.add('dark');
+        const meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute('content', '#0B0F17');
+      } else {
+        document.documentElement.classList.remove('dark');
+        const meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute('content', '#F8FAFC');
+      }
+    })();
+  </script>
 </head>
 
 <body
@@ -139,18 +155,39 @@
       </nav>
 
       <!-- Right Action & Resume -->
-      <div class="hidden md:flex items-center gap-4">
+      <div class="hidden md:flex items-center gap-3">
+        <!-- Theme Mode Toggle Button -->
+        <button id="theme-toggle-btn"
+          class="theme-toggle-btn magnetic-btn w-9 h-9 rounded-full border border-[#E2E8F0] bg-white text-[#64748B] hover:text-[#0891B2] hover:border-[#A5F3FC] shadow-sm flex items-center justify-center transition-all cursor-pointer"
+          aria-label="Toggle theme mode"
+          title="Toggle Light / Dark Mode">
+          <i data-lucide="moon" class="w-4 h-4 theme-icon-moon"></i>
+          <i data-lucide="sun" class="w-4 h-4 theme-icon-sun hidden"></i>
+        </button>
+
         <a href="assets/resume.pdf" target="_blank"
           class="magnetic-btn text-xs font-semibold px-4 py-2 rounded-full border border-[#A5F3FC] hover:border-[#06B6D4] bg-white text-[#0891B2] hover:bg-[#ECFEFF] shadow-sm transition-all">
           Resume ↗
         </a>
       </div>
 
-      <!-- Mobile Menu Toggle -->
-      <button id="mobile-menu-toggle" class="md:hidden text-[#64748B] hover:text-[#0891B2] p-2"
-        aria-label="Toggle Navigation Menu">
-        <i data-lucide="menu" class="w-6 h-6"></i>
-      </button>
+      <!-- Mobile Actions -->
+      <div class="flex items-center gap-2 md:hidden">
+        <!-- Mobile Theme Toggle -->
+        <button id="mobile-theme-toggle-btn"
+          class="theme-toggle-btn w-9 h-9 rounded-full border border-[#E2E8F0] bg-white text-[#64748B] hover:text-[#0891B2] flex items-center justify-center transition-all cursor-pointer"
+          aria-label="Toggle theme mode"
+          title="Toggle Light / Dark Mode">
+          <i data-lucide="moon" class="w-4 h-4 theme-icon-moon"></i>
+          <i data-lucide="sun" class="w-4 h-4 theme-icon-sun hidden"></i>
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-menu-toggle" class="text-[#64748B] hover:text-[#0891B2] p-2"
+          aria-label="Toggle Navigation Menu">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
     </div>
 
     <!-- Fullscreen Mobile Menu Overlay -->
@@ -168,6 +205,12 @@
         <a href="#contact" class="mobile-menu-link text-2xl font-bold text-[#64748B] hover:text-[#0891B2]">Contact</a>
       </nav>
       <div class="pt-6 border-t border-[#E2E8F0] flex flex-col gap-3">
+        <button id="overlay-theme-toggle-btn"
+          class="theme-toggle-btn w-full py-3 rounded-full flex items-center justify-center gap-2 text-sm font-semibold border border-[#E2E8F0] bg-white text-[#111827] shadow-sm">
+          <i data-lucide="moon" class="w-4 h-4 theme-icon-moon"></i>
+          <i data-lucide="sun" class="w-4 h-4 theme-icon-sun hidden"></i>
+          <span class="theme-toggle-text">Switch Mode</span>
+        </button>
         <a href="assets/resume.pdf" target="_blank" download="Riddhi_Zunjarrao_Resume.pdf"
           class="w-full py-3.5 rounded-full text-center text-sm font-semibold btn-apple-primary text-white">
           Download Resume (PDF)
@@ -188,26 +231,19 @@
       <div class="max-w-5xl mx-auto px-6 sm:px-8 w-full">
         <div class="max-w-3xl space-y-7">
 
-          <!-- Hero Text Details -->
-          <div
-            class="hero-reveal-item inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-[#A5F3FC] shadow-sm">
-            <span class="w-2 h-2 rounded-full bg-[#06B6D4] animate-pulse"></span>
-            <span class="text-[11px] font-mono tracking-wider text-[#0891B2] uppercase font-bold">
-              B.TECH CSE • AI • DATA • SOFTWARE
-            </span>
-          </div>
+
 
           <div class="space-y-3">
             <h1
-              class="hero-reveal-item text-5xl sm:text-7xl lg:text-8xl font-black tracking-tight text-[#111827] leading-[1.04]">
+              class="hero-reveal-item text-5xl sm:text-7xl lg:text-8xl font-black tracking-tight text-[#111827] leading-[1.08] pb-1">
               Hi, I'm<br>
-              <span class="gradient-text-cyan">Riddhi Zunjarrao.</span>
+              <span class="gradient-text-cyan pb-1">Riddhi Zunjarrao.</span>
             </h1>
 
             <h2
-              class="hero-reveal-item text-2xl sm:text-4xl lg:text-5xl font-bold text-[#64748B] tracking-tight leading-snug">
+              class="hero-reveal-item text-2xl sm:text-4xl lg:text-5xl font-bold text-[#64748B] tracking-tight leading-snug pb-1">
               I build intelligent<br>
-              <span class="gradient-text-cyan font-extrabold">digital experiences.</span>
+              <span class="gradient-text-cyan font-extrabold pb-1">digital experiences.</span>
             </h2>
           </div>
 
@@ -379,28 +415,6 @@
               workflows, I focus on turning complex technical capability into intuitive digital experiences.
             </p>
 
-            <div class="pt-4 space-y-3">
-              <span class="text-xs uppercase font-mono tracking-widest text-[#64748B] font-semibold block">Core Focus
-                Areas</span>
-              <div class="flex flex-wrap gap-2">
-                <span
-                  class="text-xs px-3.5 py-1.5 rounded-full bg-white border border-[#E2E8F0] text-[#111827] shadow-sm font-medium hover:border-[#06B6D4] hover:text-[#0891B2] hover:bg-[#ECFEFF] transition-all">Machine Learning</span>
-                <span
-                  class="text-xs px-3.5 py-1.5 rounded-full bg-white border border-[#E2E8F0] text-[#111827] shadow-sm font-medium hover:border-[#06B6D4] hover:text-[#0891B2] hover:bg-[#ECFEFF] transition-all">Natural Language Processing (NLP)</span>
-                <span
-                  class="text-xs px-3.5 py-1.5 rounded-full bg-white border border-[#E2E8F0] text-[#111827] shadow-sm font-medium hover:border-[#06B6D4] hover:text-[#0891B2] hover:bg-[#ECFEFF] transition-all">Generative AI</span>
-                <span
-                  class="text-xs px-3.5 py-1.5 rounded-full bg-white border border-[#E2E8F0] text-[#111827] shadow-sm font-medium hover:border-[#06B6D4] hover:text-[#0891B2] hover:bg-[#ECFEFF] transition-all">RAG &amp; Vector Embeddings</span>
-                <span
-                  class="text-xs px-3.5 py-1.5 rounded-full bg-white border border-[#E2E8F0] text-[#111827] shadow-sm font-medium hover:border-[#06B6D4] hover:text-[#0891B2] hover:bg-[#ECFEFF] transition-all">Frontend &amp; Next.js</span>
-                <span
-                  class="text-xs px-3.5 py-1.5 rounded-full bg-white border border-[#E2E8F0] text-[#111827] shadow-sm font-medium hover:border-[#06B6D4] hover:text-[#0891B2] hover:bg-[#ECFEFF] transition-all">Backend &amp; REST APIs</span>
-                <span
-                  class="text-xs px-3.5 py-1.5 rounded-full bg-white border border-[#E2E8F0] text-[#111827] shadow-sm font-medium hover:border-[#06B6D4] hover:text-[#0891B2] hover:bg-[#ECFEFF] transition-all">Cloud &amp; AWS</span>
-                <span
-                  class="text-xs px-3.5 py-1.5 rounded-full bg-white border border-[#E2E8F0] text-[#111827] shadow-sm font-medium hover:border-[#06B6D4] hover:text-[#0891B2] hover:bg-[#ECFEFF] transition-all">Databases</span>
-              </div>
-            </div>
 
             <!-- Academic Highlight Box -->
             <div class="pt-2">
@@ -408,7 +422,8 @@
                 class="p-6 rounded-2xl bg-white border border-[rgba(6,182,212,0.18)] shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
                   <span class="text-xs font-mono text-[#64748B] uppercase font-semibold">Academic Foundation</span>
-                  <p class="text-sm font-bold text-[#111827] mt-0.5">ITM Skills University • B.Tech in Computer Science &amp; Engineering</p>
+                  <p class="text-sm font-bold text-[#111827] mt-0.5">ITM Skills University • B.Tech in Computer Science
+                    &amp; Engineering</p>
                   <p class="text-xs font-mono text-[#64748B]">Navi Mumbai, India</p>
                 </div>
                 <div class="flex items-center gap-4 text-xs font-mono">
@@ -483,7 +498,8 @@
             Engineered with Purpose.
           </h2>
           <p class="text-base text-[#64748B]">
-            Production-grade systems featured in my resume combining conversational AI second-brain architectures and mobile personal safety.
+            Production-grade systems featured in my resume combining conversational AI second-brain architectures and
+            mobile personal safety.
           </p>
 
           <!-- 17: Project Category Filter Bar -->
@@ -627,8 +643,8 @@
 
         <div class="mb-16 space-y-3">
           <span class="text-xs uppercase font-mono tracking-widest text-[#0891B2] font-bold">Get in Touch</span>
-          <h2 class="text-4xl sm:text-6xl font-black text-[#111827] tracking-tight">
-            Let's build<br><span class="gradient-text-cyan">something meaningful.</span>
+          <h2 class="text-4xl sm:text-6xl font-black text-[#111827] tracking-tight leading-[1.18] pb-2">
+            Let's build<br><span class="gradient-text-cyan pb-1">something meaningful.</span>
           </h2>
           <p class="text-base text-[#64748B]">Have an idea, an opportunity, or a problem worth solving? Let's talk.</p>
         </div>

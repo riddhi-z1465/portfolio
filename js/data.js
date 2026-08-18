@@ -354,13 +354,13 @@ const PORTFOLIO_DATA = {
       role: "Vibe Coding Intern",
       company: "AA Immersive",
       location: "Remote",
-      period: "Dec 2025 — Present",
+      period: "December 2025 – Present",
       highlights: [
-        "Engineering AI-assisted web applications and intelligent user experiences using cutting-edge generative tools.",
-        "Collaborating in agile sprints to create high-performance, accessible, and minimalist frontend interfaces.",
-        "Exploring autonomous AI agent workflows and prompt engineering architectures to accelerate developer velocity."
-      ],
-      tags: ["AI Systems", "JavaScript", "Tailwind CSS", "Prompt Engineering", "Git"]
+        "Built and deployed 5+ full-stack web applications using Firebase Authentication, Firestore, and cloud services, improving development efficiency by 30% through reusable components.",
+        "Developing interactive interfaces and integrating Firebase for application functionality and data management.",
+        "Contributed to end-to-end application development, including frontend implementation, backend integration, database configuration, testing, and deployment.",
+        "Exploring new technologies and development approaches to continuously improve technical skills and problem-solving abilities."
+      ]
     }
   ],
 

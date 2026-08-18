@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, TextPlugin);
   }
 
+  initThemeToggle();
   initAICanvas();
   initCustomCursor();
   initIntroLoader();
@@ -1013,9 +1014,6 @@ function renderExperience() {
             </li>
           `).join('')}
         </ul>
-        <div class="flex flex-wrap gap-2 pt-2">
-          ${exp.tags.map(t => `<span class="text-xs px-3 py-1 rounded-full bg-white border border-[#E2E8F0] text-[#64748B] font-medium">${t}</span>`).join('')}
-        </div>
       </div>
     </div>
   `).join('');
@@ -1697,4 +1695,74 @@ function showToast(message) {
     setTimeout(() => toast.remove(), 400);
   }, 4500);
 }
+
+/* ==========================================================================
+   12. THEME TOGGLE SYSTEM (Default: Light Mode, Persistent, Dynamic)
+   ========================================================================== */
+function initThemeToggle() {
+  const toggleBtns = document.querySelectorAll('.theme-toggle-btn');
+  const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+
+  function updateThemeUI(theme) {
+    const isDark = theme === 'dark';
+
+    if (isDark) {
+      document.documentElement.classList.add('dark');
+      if (metaThemeColor) metaThemeColor.setAttribute('content', '#0B0F17');
+    } else {
+      document.documentElement.classList.remove('dark');
+      if (metaThemeColor) metaThemeColor.setAttribute('content', '#F8FAFC');
+    }
+
+    toggleBtns.forEach(btn => {
+      const sunIcon = btn.querySelector('.theme-icon-sun');
+      const moonIcon = btn.querySelector('.theme-icon-moon');
+      const labelText = btn.querySelector('.theme-toggle-text');
+
+      if (sunIcon && moonIcon) {
+        if (isDark) {
+          sunIcon.classList.remove('hidden');
+          moonIcon.classList.add('hidden');
+        } else {
+          sunIcon.classList.add('hidden');
+          moonIcon.classList.remove('hidden');
+        }
+      }
+
+      if (labelText) {
+        labelText.textContent = isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode';
+      }
+
+      btn.setAttribute('aria-label', isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode');
+      btn.setAttribute('title', isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode');
+    });
+
+    if (window.lucide) {
+      window.lucide.createIcons();
+    }
+  }
+
+  // Retrieve saved theme or default to 'light'
+  let currentTheme = localStorage.getItem('portfolio-theme') || 'light';
+  updateThemeUI(currentTheme);
+
+  toggleBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      localStorage.setItem('portfolio-theme', currentTheme);
+
+      if (window.gsap) {
+        gsap.fromTo(btn,
+          { rotate: -40, scale: 0.82 },
+          { rotate: 0, scale: 1, duration: 0.35, ease: 'back.out(2)' }
+        );
+      }
+
+      updateThemeUI(currentTheme);
+      showToast(currentTheme === 'dark' ? '🌙 Dark mode enabled' : '☀️ Light mode enabled');
+    });
+  });
+}
+
 
