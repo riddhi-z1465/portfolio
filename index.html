@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Riddhi Zunjarrao — AI • Data • Software • Innovation</title>
+
+  <!-- SEO & Meta Tags -->
+  <meta name="description"
+    content="Personal portfolio of Riddhi Zunjarrao — B.Tech Computer Science & Engineering student, aspiring Data Analyst, and AI Innovator building intelligent digital experiences.">
+  <meta name="keywords"
+    content="Riddhi Zunjarrao, Data Analyst, AI Innovator, Machine Learning, Python, B.Tech CSE, ITM Skills University, Developer Portfolio, WeSafe">
+  <meta name="author" content="Riddhi Zunjarrao">
+  <meta name="theme-color" content="#F8FAFC">
+
+  <!-- OpenGraph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Riddhi Zunjarrao — AI • Data • Software">
+  <meta property="og:description"
+    content="Exploring AI, data, software and human-centered technology to turn ideas into meaningful digital experiences.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              cyan: '#06B6D4',
+              deepCyan: '#0891B2',
+              darkCyan: '#0E7490',
+              lightCyan: '#22D3EE',
+              softCyan: '#CFFAFE',
+              cyanTint: '#ECFEFF',
+              cyanBorder: '#A5F3FC'
+            },
+            apple: {
+              bg: '#F8FAFC',
+              surface: '#FFFFFF',
+              blue: '#06B6D4',
+              text: '#111827',
+              muted: '#64748B',
+              border: '#E2E8F0'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"Inter"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', '"SF Mono"', 'Menlo', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- GSAP Suite & Plugins CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body
+  class="bg-[#F8FAFC] text-[#111827] antialiased selection:bg-[#06B6D4]/20 selection:text-[#0E7490] relative min-h-screen">
+
+  <!-- Custom Interactive Cursor Follower -->
+  <div id="custom-cursor" class="pointer-events-none fixed z-[9999999] -translate-x-1/2 -translate-y-1/2"></div>
+  <div id="custom-cursor-follower" class="pointer-events-none fixed z-[9999998] -translate-x-1/2 -translate-y-1/2">
+  </div>
+
+  <!-- Interactive AI Node Canvas Background -->
+  <canvas id="ai-canvas"></canvas>
+
+  <!-- Minimal Scroll Progress Bar -->
+  <div id="scroll-progress"></div>
+
+  <!-- Feedback Toast Container -->
+  <div id="toast-container" aria-live="polite"></div>
+
+  <!-- =========================================================================
+       05 & 06: MULTILINGUAL OPENING CINEMATIC & LOADER
+       ========================================================================= -->
+  <div id="intro-loader" class="bg-fine-grid" aria-label="Loading Experience">
+    <!-- Fine particle backdrop inside loader -->
+    <div class="absolute inset-0 bg-radial from-transparent via-[#F8FAFC]/80 to-[#F8FAFC] pointer-events-none"></div>
+
+    <!-- Greetings Container -->
+    <div id="greeting-container" class="relative flex items-center justify-center w-full h-48 z-10"></div>
+
+    <!-- Loader Bottom Metadata -->
+    <div class="absolute bottom-10 left-8 right-8 flex items-center justify-between z-10">
+      <div class="flex items-center gap-3 font-mono text-xs text-[#64748B]">
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-[#06B6D4] animate-pulse"></span>
+        <span id="loader-counter">01</span>
+        <span class="text-[#94A3B8]">—</span>
+        <span>100</span>
+      </div>
+
+      <button id="skip-intro-btn"
+        class="text-xs font-mono text-[#64748B] hover:text-[#0891B2] px-4 py-2 rounded-full border border-[#E2E8F0] hover:border-[#A5F3FC] bg-white/90 hover:bg-[#ECFEFF] backdrop-blur-md transition-all shadow-sm">
+        Skip Intro ↵
+      </button>
+    </div>
+
+    <!-- Bottom Progress Line -->
+    <div id="loader-progress-bar"></div>
+  </div>
+
+  <!-- =========================================================================
+       NAVIGATION: MINIMAL FLOATING NAVBAR
+       ========================================================================= -->
+  <header id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300">
+    <div class="max-w-6xl mx-auto px-6 sm:px-8 h-16 sm:h-20 flex items-center justify-between">
+
+      <!-- Brand Logo -->
+      <a href="#home"
+        class="text-xl sm:text-2xl font-extrabold tracking-tight text-[#111827] hover:opacity-85 transition-opacity"
+        aria-label="Riddhi Zunjarrao">
+        Riddhi Zunjarrao<span class="text-[#06B6D4]">.</span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-8 text-xs font-semibold text-[#64748B] tracking-wide"
+        aria-label="Main Navigation">
+        <a href="#journey" class="nav-link-item transition-colors">Journey</a>
+        <a href="#what-i-build" class="nav-link-item transition-colors">What I Build</a>
+        <a href="#skills" class="nav-link-item transition-colors">Skills</a>
+        <a href="#projects" class="nav-link-item transition-colors">Projects</a>
+        <a href="#experience" class="nav-link-item transition-colors">Experience</a>
+        <a href="#contact" class="nav-link-item transition-colors">Contact</a>
+      </nav>
+
+      <!-- Right Action & Resume -->
+      <div class="hidden md:flex items-center gap-4">
+        <a href="assets/resume.pdf" target="_blank"
+          class="magnetic-btn text-xs font-semibold px-4 py-2 rounded-full border border-[#A5F3FC] hover:border-[#06B6D4] bg-white text-[#0891B2] hover:bg-[#ECFEFF] shadow-sm transition-all">
+          Resume ↗
+        </a>
+      </div>
+
+      <!-- Mobile Menu Toggle -->
+      <button id="mobile-menu-toggle" class="md:hidden text-[#64748B] hover:text-[#0891B2] p-2"
+        aria-label="Toggle Navigation Menu">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+
+    <!-- Fullscreen Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay"
+      class="hidden fixed inset-0 top-16 bg-[#F8FAFC]/98 backdrop-blur-2xl p-8 z-50 flex flex-col justify-between">
+      <nav class="flex flex-col gap-5 pt-6">
+        <a href="#journey" class="mobile-menu-link text-2xl font-bold text-[#64748B] hover:text-[#0891B2]">The
+          Journey</a>
+        <a href="#what-i-build" class="mobile-menu-link text-2xl font-bold text-[#64748B] hover:text-[#0891B2]">What I
+          Build</a>
+        <a href="#skills" class="mobile-menu-link text-2xl font-bold text-[#64748B] hover:text-[#0891B2]">Skills</a>
+        <a href="#projects" class="mobile-menu-link text-2xl font-bold text-[#64748B] hover:text-[#0891B2]">Projects</a>
+        <a href="#experience"
+          class="mobile-menu-link text-2xl font-bold text-[#64748B] hover:text-[#0891B2]">Experience</a>
+        <a href="#contact" class="mobile-menu-link text-2xl font-bold text-[#64748B] hover:text-[#0891B2]">Contact</a>
+      </nav>
+      <div class="pt-6 border-t border-[#E2E8F0] flex flex-col gap-3">
+        <a href="assets/resume.pdf" target="_blank" download="Riddhi_Zunjarrao_Resume.pdf"
+          class="w-full py-3.5 rounded-full text-center text-sm font-semibold btn-apple-primary text-white">
+          Download Resume (PDF)
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       MAIN CONTENT CONTAINER
+       ========================================================================= -->
+  <main class="relative z-10">
+
+    <!-- =======================================================================
+         07 & 08: HERO SECTION & INTERACTIVE AI VISUALIZER
+         ======================================================================= -->
+    <section id="home" class="min-h-screen pt-32 pb-20 flex items-center relative overflow-hidden bg-fine-grid">
+      <div class="max-w-6xl mx-auto px-6 sm:px-8 w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+
+          <!-- Hero Text Details -->
+          <div class="lg:col-span-7 space-y-6">
+            <div
+              class="hero-reveal-item inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-[#A5F3FC] shadow-sm">
+              <span class="w-2 h-2 rounded-full bg-[#06B6D4] animate-pulse"></span>
+              <span class="text-[11px] font-mono tracking-wider text-[#0891B2] uppercase font-bold">
+                B.TECH CSE • AI • DATA • SOFTWARE
+              </span>
+            </div>
+
+            <h1
+              class="hero-reveal-item text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight text-[#111827] leading-[1.06]">
+              Hi, I'm<br>
+              <span class="gradient-text-cyan">Riddhi Zunjarrao.</span>
+            </h1>
+
+            <h2
+              class="hero-reveal-item text-2xl sm:text-3xl lg:text-4xl font-bold text-[#64748B] tracking-tight leading-snug">
+              I build intelligent<br>
+              <span class="gradient-text-cyan font-extrabold">digital experiences.</span>
+            </h2>
+
+            <p class="hero-reveal-item text-base sm:text-lg text-[#64748B] max-w-xl leading-relaxed">
+              Exploring AI, data, software and human-centered technology to turn ideas into meaningful digital
+              experiences.
+            </p>
+
+            <div class="hero-reveal-item flex flex-wrap items-center gap-4 pt-4">
+              <a href="#projects" class="magnetic-btn btn-apple-primary px-8 py-4 text-sm font-semibold">
+                Explore My Work <span class="btn-arrow">→</span>
+              </a>
+              <a href="assets/resume.pdf" target="_blank" download="Riddhi_Zunjarrao_Resume.pdf"
+                class="magnetic-btn btn-apple-white px-8 py-4 text-sm font-semibold">
+                Download Resume
+              </a>
+            </div>
+
+            <div
+              class="hero-reveal-item flex items-center gap-2 pt-6 border-t border-[#E2E8F0] text-xs font-mono text-[#64748B]">
+              <a href="https://github.com/riddhi-z1465" target="_blank" rel="noopener noreferrer"
+                class="social-link-item font-medium">
+                <i data-lucide="github" class="w-3.5 h-3.5"></i> GitHub
+              </a>
+              <a href="https://linkedin.com/in/riddhizunjarrao" target="_blank" rel="noopener noreferrer"
+                class="social-link-item font-medium">
+                <i data-lucide="linkedin" class="w-3.5 h-3.5"></i> LinkedIn
+              </a>
+              <a href="mailto:riddhizunjarrao669@gmail.com" class="social-link-item font-medium">
+                <i data-lucide="mail" class="w-3.5 h-3.5"></i> Email
+              </a>
+            </div>
+          </div>
+
+          <!-- Hero Abstract Visual (Pure Cyan Theme) -->
+          <div id="hero-tech-visual" class="lg:col-span-5 flex justify-center">
+            <div
+              class="w-full max-w-md aspect-square rounded-3xl p-6 bg-white/90 backdrop-blur-xl border border-[rgba(6,182,212,0.18)] flex flex-col justify-between relative shadow-sm hover:shadow-md transition-all group">
+
+              <!-- Top Metadata Header -->
+              <div class="flex items-center justify-between text-xs font-mono text-[#64748B]">
+                <span class="flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-[#06B6D4] animate-pulse"></span>
+                  <span class="text-[#0891B2] font-bold">AI / DATA LAB</span>
+                </span>
+                <span>ITM SKILLS UNIV</span>
+              </div>
+
+              <!-- Interactive Node Graph SVG (Pure Cyan System) -->
+              <div class="relative w-full aspect-square my-2 flex items-center justify-center">
+                <svg id="hero-interactive-svg" viewBox="0 0 320 320" class="w-full h-full"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="hero-ai-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#0E7490" />
+                      <stop offset="100%" stop-color="#06B6D4" />
+                    </linearGradient>
+                    <radialGradient id="hero-ai-glow" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stop-color="#06B6D4" stop-opacity="0.3" />
+                      <stop offset="100%" stop-color="#0891B2" stop-opacity="0" />
+                    </radialGradient>
+                  </defs>
+
+                  <!-- Orbital rings -->
+                  <circle cx="160" cy="160" r="130" stroke="#CFFAFE" stroke-width="1" fill="none"
+                    stroke-dasharray="3 3" />
+                  <circle cx="160" cy="160" r="92" stroke="rgba(6, 182, 212, 0.25)" stroke-width="1.2" fill="none" />
+                  <circle cx="160" cy="160" r="54" stroke="rgba(6, 182, 212, 0.35)" stroke-width="1.5" fill="none" />
+
+                  <!-- Ambient Glow -->
+                  <circle cx="160" cy="160" r="46" fill="url(#hero-ai-glow)" class="hero-node-pulse" />
+
+                  <!-- Connecting lines -->
+                  <line x1="160" y1="160" x2="80" y2="85" stroke="#06B6D4" stroke-width="1.2" stroke-opacity="0.45" />
+                  <line x1="160" y1="160" x2="245" y2="90" stroke="#0891B2" stroke-width="1.2" stroke-opacity="0.45" />
+                  <line x1="160" y1="160" x2="235" y2="235" stroke="#06B6D4" stroke-width="1.2" stroke-opacity="0.45" />
+                  <line x1="160" y1="160" x2="85" y2="230" stroke="#22D3EE" stroke-width="1.2" stroke-opacity="0.5" />
+
+                  <!-- Center AI Node -->
+                  <g class="interactive-node" data-label="AI Core">
+                    <circle cx="160" cy="160" r="18" fill="url(#hero-ai-grad)" />
+                    <circle cx="160" cy="160" r="26" stroke="rgba(6,182,212,0.45)" stroke-width="1.5" fill="none"
+                      class="radar-anim-ring" />
+                    <text x="160" y="164" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="9"
+                      font-weight="700" text-anchor="middle">AI</text>
+                  </g>
+
+                  <!-- Data Node (Cyan) -->
+                  <g class="interactive-node" data-label="Data Science">
+                    <circle cx="80" cy="85" r="8.5" fill="#06B6D4" />
+                    <text x="80" y="70" fill="#0891B2" font-family="'JetBrains Mono', monospace" font-size="9"
+                      font-weight="700" text-anchor="middle">DATA</text>
+                  </g>
+
+                  <!-- Code Node (Cyan Deep) -->
+                  <g class="interactive-node" data-label="Code Architecture">
+                    <circle cx="245" cy="90" r="8.5" fill="#0891B2" />
+                    <text x="245" y="75" fill="#0891B2" font-family="'JetBrains Mono', monospace" font-size="9"
+                      font-weight="700" text-anchor="middle">CODE</text>
+                  </g>
+
+                  <!-- Ideas Node (Cyan Light) -->
+                  <g class="interactive-node" data-label="Ideas & Innovation">
+                    <circle cx="235" cy="235" r="8.5" fill="#22D3EE" />
+                    <text x="235" y="255" fill="#0891B2" font-family="'JetBrains Mono', monospace" font-size="9"
+                      font-weight="700" text-anchor="middle">IDEAS</text>
+                  </g>
+
+                  <!-- Design Node (Cyan) -->
+                  <g class="interactive-node" data-label="Design System">
+                    <circle cx="85" cy="230" r="8.5" fill="#06B6D4" />
+                    <text x="85" y="250" fill="#0891B2" font-family="'JetBrains Mono', monospace" font-size="9"
+                      font-weight="700" text-anchor="middle">DESIGN</text>
+                  </g>
+                </svg>
+              </div>
+
+              <!-- Bottom Status Indicators -->
+              <div
+                class="pt-3 border-t border-[#E2E8F0] flex items-center justify-between text-[11px] font-mono text-[#64748B]">
+                <span>Status: <strong class="text-[#111827]">B.Tech CSE</strong></span>
+                <span class="text-[#0891B2] font-semibold">Interactive Physics Active</span>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         09: PERSONAL BRAND STATEMENT (SCROLL-DRIVEN GSAP)
+         ======================================================================= -->
+    <section id="brand-statement-section"
+      class="py-28 sm:py-36 section-white border-t border-[#E2E8F0] relative overflow-hidden">
+      <div class="max-w-5xl mx-auto px-6 sm:px-8">
+
+        <!-- Large Statement -->
+        <div class="space-y-6 max-w-3xl">
+          <p class="text-xs font-mono uppercase tracking-widest text-[#0891B2] font-bold">
+            Personal Philosophy
+          </p>
+
+          <h2 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-[#64748B] tracking-tight leading-tight">
+            I'm not just learning technology.<br>
+            <span class="text-[#111827]">I'm building with it.</span>
+          </h2>
+        </div>
+
+        <!-- 4 Sequential Words Reveal -->
+        <div id="brand-words-block"
+          class="pt-16 sm:pt-24 grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-[#E2E8F0] mt-16">
+          <div class="space-y-2">
+            <span class="text-xs font-mono text-[#0891B2] font-bold">01</span>
+            <div class="editorial-word text-4xl sm:text-6xl font-black text-[#111827] tracking-tighter">AI.</div>
+            <p class="text-xs text-[#64748B]">Agents, speech recognition & models</p>
+          </div>
+          <div class="space-y-2">
+            <span class="text-xs font-mono text-[#0891B2] font-bold">02</span>
+            <div class="editorial-word text-4xl sm:text-6xl font-black text-[#111827] tracking-tighter">DATA.</div>
+            <p class="text-xs text-[#64748B]">Analytics, EDA & regression pipelines</p>
+          </div>
+          <div class="space-y-2">
+            <span class="text-xs font-mono text-[#0891B2] font-bold">03</span>
+            <div class="editorial-word text-4xl sm:text-6xl font-black text-[#111827] tracking-tighter">SOFTWARE.</div>
+            <p class="text-xs text-[#64748B]">Scalable web systems & cloud DBs</p>
+          </div>
+          <div class="space-y-2">
+            <span class="text-xs font-mono text-[#0891B2] font-bold">04</span>
+            <div class="editorial-word text-4xl sm:text-6xl font-black text-[#0891B2] tracking-tighter">DESIGN.</div>
+            <p class="text-xs text-[#64748B]">Human-centered digital polish</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         10: "MY JOURNEY" STORYTELLING SECTION
+         ======================================================================= -->
+    <section id="journey" class="py-32 section-subtle border-t border-[#E2E8F0] relative">
+      <div class="max-w-5xl mx-auto px-6 sm:px-8">
+
+        <div class="mb-16 space-y-3">
+          <span class="text-xs uppercase font-mono tracking-widest text-[#0891B2] font-bold">Story & Progression</span>
+          <h2 class="text-4xl sm:text-6xl font-black text-[#111827] tracking-tight">
+            The Journey.
+          </h2>
+          <p class="text-base text-[#64748B] max-w-xl">
+            More than a portfolio. A progressive journey of curiosity, experimentation, engineering, and innovation.
+          </p>
+        </div>
+
+        <!-- Dynamic Journey Timeline Container -->
+        <div id="journey-container" class="relative pl-8 sm:pl-12 space-y-12">
+          <!-- Rendered dynamically by script.js -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         11: ABOUT ME (CONCISE STORYTELLING & INTERESTS)
+         ======================================================================= -->
+    <section id="about" class="py-32 section-white border-t border-[#E2E8F0] relative">
+      <div class="max-w-6xl mx-auto px-6 sm:px-8">
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+
+          <!-- Portrait Visual Card -->
+          <div class="lg:col-span-5 flex justify-center">
+            <div
+              class="w-full max-w-sm rounded-3xl p-3 bg-white/95 backdrop-blur-xl border border-[rgba(6,182,212,0.18)] shadow-lg relative group transition-all duration-300 hover:shadow-xl hover:border-[#A5F3FC]">
+              <!-- Image Frame -->
+              <div class="w-full aspect-[4/5] rounded-2xl overflow-hidden bg-[#F8FAFC] relative">
+                <img src="assets/images/riddhi.png"
+                  alt="Riddhi Zunjarrao — B.Tech CSE Student, Aspiring Data Analyst & AI Innovator"
+                  class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy">
+                <!-- Floating Minimal Badge -->
+                <div
+                  class="absolute bottom-3 left-3 right-3 p-3 rounded-xl bg-white/90 backdrop-blur-md border border-[#A5F3FC] shadow-sm flex items-center justify-between">
+                  <div class="space-y-0.5">
+                    <span class="text-xs font-bold text-[#111827] block">Riddhi Zunjarrao</span>
+                    <span class="text-[10px] font-mono text-[#64748B] block">B.Tech CSE • ITM Skills Univ</span>
+                  </div>
+                  <div class="text-right">
+                    <span class="text-xs font-mono font-bold text-[#0891B2] block">2024 — 2028</span>
+                    <span class="text-[9px] font-mono text-[#64748B] uppercase">Undergrad</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Bottom Card Tag -->
+              <div class="pt-3 px-2 flex items-center justify-between text-[11px] font-mono text-[#64748B]">
+                <span class="flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                  <span class="text-[#111827] font-medium">Open to AI & Data Roles</span>
+                </span>
+                <span>Navi Mumbai, IN</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Story Details & Interests -->
+          <div class="lg:col-span-7 space-y-6">
+            <div class="space-y-3">
+              <span class="text-xs uppercase font-mono tracking-widest text-[#0891B2] font-bold">About Me</span>
+              <h2 class="text-3xl sm:text-5xl font-black text-[#111827] tracking-tight leading-tight">
+                Driven by purpose.<br>
+                Powered by code.
+              </h2>
+            </div>
+
+            <p class="text-lg sm:text-xl text-[#111827] leading-relaxed font-medium">
+              I'm a Computer Science & Engineering student passionate about Artificial Intelligence, Data Analytics,
+              Software Development, and building technology that solves real problems.
+            </p>
+            <p class="text-base text-[#64748B] leading-relaxed">
+              I combine mathematical rigor in supervised regression pipelines with human-centered empathy in web
+              interfaces. Whether developing AI-powered voice safety platforms or exploring autonomous developer agent
+              workflows, I focus on turning complex technical capability into intuitive digital experiences.
+            </p>
+
+            <div class="pt-4 space-y-3">
+              <span class="text-xs uppercase font-mono tracking-widest text-[#64748B] font-semibold block">Core Focus
+                Areas</span>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="text-xs px-3.5 py-1.5 rounded-full bg-white border border-[#E2E8F0] text-[#111827] shadow-sm font-medium hover:border-[#06B6D4] hover:text-[#0891B2] hover:bg-[#ECFEFF] transition-all">AI</span>
+                <span
+                  class="text-xs px-3.5 py-1.5 rounded-full bg-white border border-[#E2E8F0] text-[#111827] shadow-sm font-medium hover:border-[#06B6D4] hover:text-[#0891B2] hover:bg-[#ECFEFF] transition-all">Machine
+                  Learning</span>
+                <span
+                  class="text-xs px-3.5 py-1.5 rounded-full bg-white border border-[#E2E8F0] text-[#111827] shadow-sm font-medium hover:border-[#06B6D4] hover:text-[#0891B2] hover:bg-[#ECFEFF] transition-all">Data
+                  Analytics</span>
+                <span
+                  class="text-xs px-3.5 py-1.5 rounded-full bg-white border border-[#E2E8F0] text-[#111827] shadow-sm font-medium hover:border-[#06B6D4] hover:text-[#0891B2] hover:bg-[#ECFEFF] transition-all">Generative
+                  AI</span>
+                <span
+                  class="text-xs px-3.5 py-1.5 rounded-full bg-white border border-[#E2E8F0] text-[#111827] shadow-sm font-medium hover:border-[#06B6D4] hover:text-[#0891B2] hover:bg-[#ECFEFF] transition-all">AI
+                  Agents</span>
+                <span
+                  class="text-xs px-3.5 py-1.5 rounded-full bg-white border border-[#E2E8F0] text-[#111827] shadow-sm font-medium hover:border-[#06B6D4] hover:text-[#0891B2] hover:bg-[#ECFEFF] transition-all">Web
+                  Development</span>
+                <span
+                  class="text-xs px-3.5 py-1.5 rounded-full bg-white border border-[#E2E8F0] text-[#111827] shadow-sm font-medium hover:border-[#06B6D4] hover:text-[#0891B2] hover:bg-[#ECFEFF] transition-all">UI/UX</span>
+                <span
+                  class="text-xs px-3.5 py-1.5 rounded-full bg-white border border-[#E2E8F0] text-[#111827] shadow-sm font-medium hover:border-[#06B6D4] hover:text-[#0891B2] hover:bg-[#ECFEFF] transition-all">Cloud</span>
+              </div>
+            </div>
+
+            <!-- Academic Highlight Box -->
+            <div class="pt-2">
+              <div
+                class="p-6 rounded-2xl bg-white border border-[rgba(6,182,212,0.18)] shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div>
+                  <span class="text-xs font-mono text-[#64748B] uppercase font-semibold">Academic Foundation</span>
+                  <p class="text-sm font-bold text-[#111827] mt-0.5">ITM Skills University • B.Tech CSE</p>
+                </div>
+                <div class="flex items-center gap-4 text-xs font-mono">
+                  <span
+                    class="px-3.5 py-1.5 rounded-lg bg-[#ECFEFF] border border-[#A5F3FC] text-[#0891B2] font-bold">2024
+                    — 2028</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         12: "WHAT I BUILD" (4 EXPANDING PILLARS)
+         ======================================================================= -->
+    <section id="what-i-build" class="py-32 section-cyan-tint border-t border-[#E2E8F0] relative">
+      <div class="max-w-6xl mx-auto px-6 sm:px-8">
+
+        <div class="mb-16 space-y-3">
+          <span class="text-xs uppercase font-mono tracking-widest text-[#0891B2] font-bold">Capabilities</span>
+          <h2 class="text-4xl sm:text-6xl font-black text-[#111827] tracking-tight">
+            What I Build.
+          </h2>
+          <p class="text-base text-[#64748B] max-w-xl">
+            Four specialized domains where I combine computational logic, machine intelligence, and design craft.
+          </p>
+        </div>
+
+        <div id="what-i-build-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Rendered dynamically by script.js -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         13: TECHNICAL SKILLS WALL (NO PERCENTAGES)
+         ======================================================================= -->
+    <section id="skills" class="py-32 section-white border-t border-[#E2E8F0] relative">
+      <div class="max-w-5xl mx-auto px-6 sm:px-8">
+
+        <div class="mb-16">
+          <span class="text-xs uppercase font-mono tracking-widest text-[#0891B2] font-bold">Technology Stack</span>
+          <h2 class="text-3xl sm:text-5xl font-black text-[#111827] tracking-tight mt-1">
+            Technical Arsenal.
+          </h2>
+          <p class="text-sm text-[#64748B] mt-2">Tools, libraries, and frameworks I use to engineer robust digital
+            systems.</p>
+        </div>
+
+        <div id="skills-container" class="space-y-4">
+          <!-- Rendered dynamically by script.js -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         14, 16 & 17: PROJECTS SHOWCASE & FILTER
+         ======================================================================= -->
+    <section id="projects" class="py-36 section-subtle border-t border-[#E2E8F0] relative">
+      <div class="max-w-6xl mx-auto px-6 sm:px-8">
+
+        <div class="mb-16 text-center max-w-3xl mx-auto space-y-3">
+          <span class="text-xs uppercase font-mono tracking-widest text-[#0891B2] font-bold">Selected Works</span>
+          <h2 class="text-4xl sm:text-6xl font-black text-[#111827] tracking-tight">
+            Engineered with Purpose.
+          </h2>
+          <p class="text-base text-[#64748B]">
+            Case-study-style project experiences combining AI personal safety, machine learning regression, urban
+            mobility, and IoT simulation.
+          </p>
+
+          <!-- 17: Project Category Filter Bar -->
+          <div class="flex flex-wrap items-center justify-center gap-2 pt-6" id="project-filters">
+            <button class="filter-btn active" data-filter="all">ALL</button>
+            <button class="filter-btn" data-filter="ai-ml">AI / ML</button>
+            <button class="filter-btn" data-filter="web">WEB</button>
+            <button class="filter-btn" data-filter="data">DATA</button>
+            <button class="filter-btn" data-filter="iot">IOT</button>
+          </div>
+        </div>
+
+        <!-- Dynamic Projects Showcase Container -->
+        <div id="projects-showcase-container">
+          <!-- Rendered dynamically by script.js -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         19: EXPERIENCE (EDITORIAL TIMELINE)
+         ======================================================================= -->
+    <section id="experience" class="py-32 section-subtle border-t border-[#E2E8F0] relative">
+      <div class="max-w-5xl mx-auto px-6 sm:px-8">
+
+        <div class="mb-16">
+          <span class="text-xs uppercase font-mono tracking-widest text-[#0891B2] font-bold">Career & Impact</span>
+          <h2 class="text-3xl sm:text-5xl font-black text-[#111827] tracking-tight mt-1">
+            Experience.
+          </h2>
+        </div>
+
+        <div id="experience-container" class="space-y-12">
+          <!-- Rendered dynamically by script.js -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         20: EDUCATION
+         ======================================================================= -->
+    <section class="py-32 section-white border-t border-[#E2E8F0] relative">
+      <div class="max-w-5xl mx-auto px-6 sm:px-8">
+
+        <div class="mb-16">
+          <span class="text-xs uppercase font-mono tracking-widest text-[#0891B2] font-bold">Academic Foundation</span>
+          <h2 class="text-3xl sm:text-5xl font-black text-[#111827] tracking-tight mt-1">
+            Education.
+          </h2>
+        </div>
+
+        <div id="education-container">
+          <!-- Rendered dynamically by script.js -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         22: CERTIFICATIONS
+         ======================================================================= -->
+    <section id="certifications" class="py-32 section-subtle border-t border-[#E2E8F0] relative">
+      <div class="max-w-5xl mx-auto px-6 sm:px-8">
+
+        <div class="mb-16 space-y-2">
+          <span class="text-xs uppercase font-mono tracking-widest text-[#0891B2] font-bold">Credentials</span>
+          <h2 class="text-3xl sm:text-5xl font-black text-[#111827] tracking-tight">
+            Certifications.
+          </h2>
+          <p class="text-sm text-[#64748B]">Verified industry credentials, technical specializations, and AI
+            certifications.</p>
+        </div>
+
+        <div id="certifications-container" class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <!-- Rendered dynamically by script.js -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         23: GITHUB OPEN SOURCE SECTION
+         ======================================================================= -->
+    <section class="py-32 section-white border-t border-[#E2E8F0] relative">
+      <div class="max-w-5xl mx-auto px-6 sm:px-8">
+
+        <div class="mb-16 space-y-3">
+          <span class="text-xs uppercase font-mono tracking-widest text-[#0891B2] font-bold">Open Source</span>
+          <h2 class="text-3xl sm:text-5xl font-black text-[#111827] tracking-tight">
+            Ideas become real<br>
+            <span class="text-[#111827]">when you build them.</span>
+          </h2>
+          <p class="text-sm text-[#64748B]">Explore my open source repositories, machine learning pipelines, and
+            experiments.</p>
+        </div>
+
+        <div id="github-repos-container" class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+          <!-- Rendered dynamically by script.js -->
+        </div>
+
+        <div class="text-center pt-6">
+          <a href="https://github.com/riddhi-z1465" target="_blank" rel="noopener noreferrer"
+            class="magnetic-btn btn-apple-primary px-8 py-3.5 text-xs font-semibold">
+            View All on GitHub ↗
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         24: RESUME CTA SECTION
+         ======================================================================= -->
+    <section class="py-32 section-subtle border-t border-[#E2E8F0] relative">
+      <div class="max-w-4xl mx-auto px-6 sm:px-8 text-center space-y-6">
+        <span class="text-xs uppercase font-mono tracking-widest text-[#0891B2] font-bold">Curriculum Vitae</span>
+        <h2 class="text-4xl sm:text-6xl font-black text-[#111827] tracking-tight">
+          Want the full story?
+        </h2>
+        <p class="text-base text-[#64748B] max-w-xl mx-auto leading-relaxed">
+          Comprehensive review of my technical background, engineering projects, AI agent research, and certifications.
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-4 pt-2">
+          <a href="assets/resume.pdf" target="_blank"
+            class="magnetic-btn btn-apple-primary px-8 py-3.5 text-sm font-semibold">
+            View Resume ↗
+          </a>
+          <a href="assets/resume.pdf" download="Riddhi_Zunjarrao_Resume.pdf"
+            class="magnetic-btn btn-apple-white px-8 py-3.5 text-sm font-semibold">
+            Download Resume (PDF)
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         25: CONTACT SECTION
+         ======================================================================= -->
+    <section id="contact" class="py-32 section-white border-t border-[#E2E8F0] relative">
+      <div class="max-w-5xl mx-auto px-6 sm:px-8">
+
+        <div class="mb-16 space-y-3">
+          <span class="text-xs uppercase font-mono tracking-widest text-[#0891B2] font-bold">Get in Touch</span>
+          <h2 class="text-4xl sm:text-6xl font-black text-[#111827] tracking-tight">
+            Let's build<br><span class="gradient-text-cyan">something meaningful.</span>
+          </h2>
+          <p class="text-base text-[#64748B]">Have an idea, an opportunity, or a problem worth solving? Let's talk.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
+
+          <!-- Direct Links -->
+          <div class="md:col-span-5 space-y-6 text-sm text-[#64748B]">
+            <div class="space-y-1">
+              <span class="text-xs font-mono uppercase text-[#94A3B8] block font-semibold">Email</span>
+              <a href="mailto:riddhizunjarrao669@gmail.com"
+                class="text-[#111827] hover:text-[#0891B2] transition-colors font-semibold text-base">riddhizunjarrao669@gmail.com</a>
+            </div>
+            <div class="space-y-1">
+              <span class="text-xs font-mono uppercase text-[#94A3B8] block font-semibold">LinkedIn</span>
+              <a href="https://linkedin.com/in/riddhizunjarrao" target="_blank" rel="noopener noreferrer"
+                class="text-[#111827] hover:text-[#0891B2] transition-colors font-semibold text-base">linkedin.com/in/riddhizunjarrao</a>
+            </div>
+            <div class="space-y-1">
+              <span class="text-xs font-mono uppercase text-[#94A3B8] block font-semibold">GitHub</span>
+              <a href="https://github.com/riddhi-z1465" target="_blank" rel="noopener noreferrer"
+                class="text-[#111827] hover:text-[#0891B2] transition-colors font-semibold text-base">github.com/riddhi-z1465</a>
+            </div>
+            <div class="space-y-1">
+              <span class="text-xs font-mono uppercase text-[#94A3B8] block font-semibold">Location</span>
+              <p class="text-[#111827] font-semibold text-base">Navi Mumbai, Maharashtra, India</p>
+            </div>
+          </div>
+
+          <!-- Minimal Light Contact Form -->
+          <div class="md:col-span-7">
+            <form id="contact-form" class="space-y-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <input type="text" id="form-name" required placeholder="Name"
+                    class="w-full px-4 py-3.5 rounded-xl bg-white border border-[#E2E8F0] text-[#111827] placeholder-[#94A3B8] text-sm focus:outline-none focus:border-[#06B6D4] focus:ring-2 focus:ring-[#06B6D4]/15 transition-all shadow-sm font-sans">
+                </div>
+                <div>
+                  <input type="email" id="form-email" required placeholder="Email Address"
+                    class="w-full px-4 py-3.5 rounded-xl bg-white border border-[#E2E8F0] text-[#111827] placeholder-[#94A3B8] text-sm focus:outline-none focus:border-[#06B6D4] focus:ring-2 focus:ring-[#06B6D4]/15 transition-all shadow-sm font-sans">
+                </div>
+              </div>
+              <div>
+                <input type="text" id="form-subject" placeholder="Subject / Opportunity"
+                  class="w-full px-4 py-3.5 rounded-xl bg-white border border-[#E2E8F0] text-[#111827] placeholder-[#94A3B8] text-sm focus:outline-none focus:border-[#06B6D4] focus:ring-2 focus:ring-[#06B6D4]/15 transition-all shadow-sm font-sans">
+              </div>
+              <div>
+                <textarea id="form-message" rows="4" required placeholder="Your message..."
+                  class="w-full px-4 py-3.5 rounded-xl bg-white border border-[#E2E8F0] text-[#111827] placeholder-[#94A3B8] text-sm focus:outline-none focus:border-[#06B6D4] focus:ring-2 focus:ring-[#06B6D4]/15 transition-all resize-none shadow-sm font-sans"></textarea>
+              </div>
+              <button type="submit" id="form-submit-btn"
+                class="w-full py-4 rounded-xl font-bold btn-apple-primary text-sm shadow-md">
+                Send Message <span class="btn-arrow">→</span>
+              </button>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         30: FINAL INTERACTION / EMOTIONAL CLOSING
+         ======================================================================= -->
+    <section id="closing-mantra-section"
+      class="py-24 sm:py-32 section-subtle border-t border-[#E2E8F0] relative text-center">
+      <div class="max-w-4xl mx-auto px-6 sm:px-8 space-y-6">
+        <p class="text-xs font-mono uppercase tracking-widest text-[#64748B]">
+          Thanks for exploring.
+        </p>
+
+        <div class="text-3xl sm:text-5xl lg:text-6xl font-black text-[#111827] tracking-tight leading-tight space-y-1">
+          <div class="closing-word">Keep building.</div>
+          <div class="closing-word">Keep experimenting.</div>
+          <div class="closing-word gradient-text-cyan">Keep creating.</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================================
+       15: FULLSCREEN WESAFE CASE STUDY MODAL
+       ========================================================================= -->
+  <div id="case-study-modal" role="dialog" aria-modal="true" aria-labelledby="case-study-title">
+
+    <!-- Modal Sticky Nav Header -->
+    <div
+      class="sticky top-0 z-50 bg-[#F8FAFC]/92 backdrop-blur-xl border-b border-[#E2E8F0] px-6 sm:px-12 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span class="w-2.5 h-2.5 rounded-full bg-[#06B6D4] animate-pulse"></span>
+        <span class="text-xs font-mono uppercase tracking-wider text-[#64748B] font-bold">Featured Case Study</span>
+      </div>
+
+      <button id="close-case-study-btn"
+        class="magnetic-btn text-xs font-mono font-bold px-4 py-2 rounded-full bg-[#111827] text-white hover:bg-[#0891B2] transition-all flex items-center gap-1.5 shadow-sm"
+        aria-label="Close Case Study">
+        <span>Close</span> <i data-lucide="x" class="w-3.5 h-3.5"></i>
+      </button>
+    </div>
+
+    <!-- Modal Content Body -->
+    <div class="max-w-5xl mx-auto px-6 sm:px-8 py-16 w-full space-y-20">
+
+      <!-- Header Overview -->
+      <div class="space-y-4 border-b border-[#E2E8F0] pb-12">
+        <span class="text-xs font-mono text-[#0891B2] uppercase font-bold tracking-widest">01 • AI & Personal
+          Safety</span>
+        <h2 id="case-study-title" class="text-4xl sm:text-6xl font-black text-[#111827] tracking-tight">
+          WeSafe
+        </h2>
+        <p class="text-xl sm:text-2xl text-[#64748B] font-medium">
+          Technology designed around personal safety.
+        </p>
+        <p class="text-base text-[#64748B] max-w-3xl leading-relaxed pt-2">
+          An AI-powered personal safety platform designed to provide intelligent emergency assistance and proactive
+          safety features through continuous hands-free speech recognition.
+        </p>
+      </div>
+
+      <!-- Live Interactive Simulation Sandbox -->
+      <div class="p-8 sm:p-12 rounded-3xl bg-white border border-[rgba(6,182,212,0.2)] shadow-sm space-y-6">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-mono uppercase tracking-widest text-[#0891B2] font-bold">Interactive Voice
+            Simulator</span>
+          <span id="voice-sim-status"
+            class="text-xs font-mono px-3 py-1 rounded-full bg-[#ECFEFF] border border-[#A5F3FC] text-[#0891B2] font-semibold">
+            Status: Idle / Ready
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <div class="space-y-4">
+            <h4 class="text-2xl font-bold text-[#111827]">Test Voice Trigger Detection</h4>
+            <p class="text-sm text-[#64748B] leading-relaxed">
+              Click the button below to simulate voice detection of the distress safe-word <code
+                class="text-xs font-mono bg-[#ECFEFF] px-2 py-1 rounded text-[#0891B2] border border-[#A5F3FC]">"EMERGENCY"</code>
+              or speak live via microphone.
+            </p>
+            <div class="flex flex-wrap gap-3 pt-2">
+              <button id="trigger-sim-voice-btn" class="magnetic-btn btn-apple-cyan px-6 py-3 text-xs font-bold">
+                Simulate Safe Word Trigger ⚡
+              </button>
+              <button id="trigger-live-mic-btn" class="magnetic-btn btn-apple-white px-6 py-3 text-xs font-bold">
+                Live Mic Test 🎙️
+              </button>
+            </div>
+          </div>
+
+          <!-- Radar Visualizer Sandbox -->
+          <div
+            class="aspect-video rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] p-4 flex flex-col items-center justify-center relative overflow-hidden">
+            <div id="sim-radar-core"
+              class="w-16 h-16 rounded-full bg-[#111827] flex items-center justify-center text-white text-xs font-mono font-bold z-10 transition-all">
+              SOS
+            </div>
+            <div class="absolute w-28 h-28 rounded-full border border-[#06B6D4]/40 radar-anim-ring"></div>
+            <div class="absolute w-44 h-44 rounded-full border border-[#22D3EE]/25 radar-anim-ring"
+              style="animation-delay: 1.5s;"></div>
+            <div id="sim-log-text" class="absolute bottom-3 text-[11px] font-mono text-[#64748B]">
+              Acoustic monitoring active (44.1 kHz)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case Study Core Narrative Sections -->
+      <div id="case-study-sections-container" class="space-y-16">
+        <!-- Rendered dynamically by script.js -->
+      </div>
+
+      <!-- Bottom CTAs inside modal -->
+      <div class="pt-8 border-t border-[#E2E8F0] flex flex-wrap items-center justify-between gap-4">
+        <a href="https://github.com/riddhi-z1465/wesafe-ai-safety" target="_blank" rel="noopener noreferrer"
+          class="magnetic-btn btn-apple-primary px-8 py-3.5 text-xs font-bold">
+          View Repository on GitHub ↗
+        </a>
+        <button id="bottom-close-case-study-btn" class="magnetic-btn btn-apple-white px-8 py-3.5 text-xs font-bold">
+          Back to Portfolio ↑
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       CERTIFICATE LIGHTBOX / MODAL
+       ========================================================================= -->
+  <div id="certificate-modal" class="cert-modal-container" role="dialog" aria-modal="true"
+    aria-labelledby="cert-modal-title">
+    <div id="cert-modal-backdrop" class="cert-modal-backdrop"></div>
+
+    <div class="cert-modal-dialog">
+      <!-- Modal Header -->
+      <div class="px-6 py-4 border-b border-[#E2E8F0] bg-[#F8FAFC] flex items-center justify-between gap-4">
+        <div class="min-w-0">
+          <div class="flex items-center gap-2 flex-wrap">
+            <span id="cert-modal-badge"
+              class="text-[11px] font-mono font-bold text-[#0891B2] bg-[#ECFEFF] px-2 py-0.5 rounded border border-[#A5F3FC]">Credential</span>
+            <span id="cert-modal-date" class="text-xs font-mono text-[#64748B]"></span>
+          </div>
+          <h3 id="cert-modal-title" class="text-lg sm:text-xl font-bold text-[#111827] mt-1 tracking-tight truncate">
+          </h3>
+          <p id="cert-modal-org" class="text-xs text-[#64748B] font-medium"></p>
+        </div>
+
+        <button id="close-cert-modal-btn"
+          class="w-8 h-8 rounded-full bg-white border border-[#E2E8F0] text-[#64748B] hover:text-[#111827] hover:border-[#CBD5E1] flex items-center justify-center transition-colors shrink-0 shadow-sm"
+          aria-label="Close Certificate Modal">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="p-6 overflow-y-auto flex-1 flex flex-col items-center justify-center bg-[#F1F5F9]/50 min-h-[300px]">
+        <div id="cert-modal-img-container" class="w-full flex items-center justify-center">
+          <img id="cert-modal-img" src="" alt="Certificate Preview"
+            class="max-h-[60vh] w-auto max-w-full object-contain rounded-xl border border-[#E2E8F0] shadow-sm bg-white" />
+          <div id="cert-modal-fallback"
+            class="hidden text-center p-8 space-y-3 bg-white rounded-xl border border-[#E2E8F0] w-full max-w-md shadow-sm">
+            <div class="w-12 h-12 rounded-full bg-[#ECFEFF] text-[#0891B2] flex items-center justify-center mx-auto">
+              <i data-lucide="award" class="w-6 h-6"></i>
+            </div>
+            <h4 id="cert-modal-fallback-title" class="text-base font-bold text-[#111827]"></h4>
+            <p id="cert-modal-fallback-org" class="text-xs text-[#64748B]"></p>
+            <p class="text-[11px] text-[#94A3B8] font-mono">Certificate image will display here when placed in <span
+                class="text-[#0891B2]">assets/images/certificates/</span></p>
+          </div>
+        </div>
+
+        <div id="cert-modal-id-wrapper" class="mt-4 hidden w-full flex justify-center">
+          <div
+            class="text-xs font-mono text-[#64748B] bg-white px-3 py-1.5 rounded-lg border border-[#E2E8F0] flex items-center gap-2 shadow-sm">
+            <span class="text-[#0891B2] font-semibold">Credential ID:</span>
+            <span id="cert-modal-id" class="select-all font-mono text-[#111827]"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="px-6 py-3.5 border-t border-[#E2E8F0] bg-[#F8FAFC] flex items-center justify-between text-xs">
+        <span class="text-[#64748B] text-[11px] font-mono flex items-center gap-1.5">
+          <i data-lucide="shield-check" class="w-3.5 h-3.5 text-[#0891B2]"></i>
+          <span>Verified Credential</span>
+        </span>
+        <div class="flex items-center gap-2">
+          <a id="cert-modal-view-full" href="#" target="_blank" rel="noopener noreferrer"
+            class="magnetic-btn btn-apple-primary px-4 py-1.5 text-xs font-semibold hidden flex items-center gap-1">
+            <span>Open Original Image</span>
+            <span class="link-arrow">↗</span>
+          </a>
+          <button id="bottom-close-cert-modal-btn"
+            class="magnetic-btn px-4 py-1.5 text-xs font-semibold rounded-full border border-[#E2E8F0] bg-white text-[#111827] hover:bg-[#F8FAFC]">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       FOOTER
+       ========================================================================= -->
+  <footer class="py-16 border-t border-[#E2E8F0] text-xs font-mono text-[#64748B] bg-[#F1F5F9] relative z-10">
+    <div class="max-w-5xl mx-auto px-6 sm:px-8 space-y-8">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div>
+          <span class="text-sm font-bold text-[#111827]">Riddhi Zunjarrao</span>
+          <p class="text-[11px] mt-0.5">B.Tech CSE Student • Aspiring Data Analyst & AI Innovator</p>
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="https://github.com/riddhi-z1465" target="_blank" rel="noopener noreferrer"
+            class="hover:text-[#0891B2] transition-colors font-medium">GitHub</a>
+          <a href="https://linkedin.com/in/riddhizunjarrao" target="_blank" rel="noopener noreferrer"
+            class="hover:text-[#0891B2] transition-colors font-medium">LinkedIn</a>
+          <a href="assets/resume.pdf" target="_blank"
+            class="hover:text-[#0891B2] transition-colors font-medium">Resume</a>
+          <a href="mailto:riddhizunjarrao669@gmail.com"
+            class="hover:text-[#0891B2] transition-colors font-medium">Email</a>
+        </div>
+      </div>
+      <div class="pt-6 border-t border-[#E2E8F0] flex items-center justify-between text-[11px]">
+        <span>© 2026 Riddhi Zunjarrao • Built with Vanilla JS & GSAP</span>
+        <span class="text-[#0891B2] font-semibold">Cyan Edition</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top button -->
+  <button id="back-to-top"
+    class="fixed bottom-6 right-6 z-40 w-11 h-11 rounded-full bg-white border border-[#E2E8F0] text-[#111827] shadow-lg flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:bg-[#ECFEFF] hover:border-[#A5F3FC] hover:text-[#0891B2] hover:scale-105"
+    aria-label="Back to top">
+    <i data-lucide="arrow-up" class="w-4 h-4"></i>
+  </button>
+
+  <!-- Application Logic -->
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+</body>
+
+</html>
