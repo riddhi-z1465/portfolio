@@ -153,24 +153,26 @@ const PORTFOLIO_DATA = {
     }
   ],
 
-  // 14 & 16: Projects Data with category tags
+  // 14 & 16: Projects Data (Exactly matching resume: Recall Lite & WeSafe)
   projects: [
     {
       id: "recall-lite",
       number: "01",
       isFeatured: true,
-      filterCategory: "ai-ml",
-      filterDisplay: "AI / ML",
+      filterCategory: "ai-rag",
+      filterDisplay: "AI & RAG",
       title: "Recall Lite",
-      category: "Featured • AI Second Brain & Knowledge Engine",
+      category: "Featured • AI-Second Brain Application (2025)",
       tagline: "Conversational RAG search with pgvector & Groq Llama 3.3 70B.",
-      description: "An AI-powered knowledge management system enabling users to store, chunk, and query 500+ web resources using natural language conversational search. Implements full Retrieval-Augmented Generation (RAG) pipelines with vector embeddings and sub-second similarity search.",
-      techStack: ["Next.js", "RAG Pipeline", "PostgreSQL pgvector", "Groq Llama 3.3 70B", "Supabase RLS", "Vector Embeddings"],
+      description: "An AI-powered knowledge management system enabling users to store and query 500+ web resources using conversational search. Features Retrieval-Augmented Generation (RAG) pipelines with vector embeddings and sub-second similarity search.",
+      techStack: ["Next.js", "Supabase", "PostgreSQL (pgvector)", "Groq Llama 3.3 70B", "RAG Pipeline", "Vector Embeddings"],
       features: [
-        "Conversational search engine indexing and querying 500+ web resources with source attribution",
-        "Sub-second vector similarity search via PostgreSQL pgvector & document chunking",
-        "Grounded LLM answer generation powered by Groq Llama 3.3 70B inference engine",
-        "Secure multi-tenant access control with Supabase Authentication and Row-Level Security (RLS)"
+        "Built an AI-powered knowledge management system enabling users to store and query 500+ web resources using conversational search.",
+        "Applied Retrieval-Augmented Generation (RAG) pipelines with vector embeddings and semantic search for context-aware retrieval.",
+        "Expanded document chunking and indexing workflows using PostgreSQL pgvector, enabling sub-second similarity search across large datasets.",
+        "Integrated Groq Llama 3.3 70B to generate grounded answers, summaries, and question-answering responses with proper source attribution.",
+        "Enforced secure multi-user access using Supabase Authentication and Row-Level Security (RLS).",
+        "Improved retrieval ranking logic, reducing irrelevant results by 30%."
       ],
       github: "https://github.com/riddhi-z1465/recall-lite",
       demo: "https://github.com/riddhi-z1465/recall-lite"
@@ -179,122 +181,22 @@ const PORTFOLIO_DATA = {
       id: "wesafe",
       number: "02",
       isFeatured: true,
-      filterCategory: "ai-ml",
-      filterDisplay: "AI / ML",
+      filterCategory: "mobile-safety",
+      filterDisplay: "Mobile & Safety",
       title: "WeSafe",
-      category: "Featured • AI & Personal Safety Platform",
-      tagline: "Technology designed around personal safety.",
-      description: "An AI-powered personal safety platform designed to provide intelligent emergency assistance and proactive safety features. Operates hands-free through voice-triggered emergency safe word detection, automated Twilio SOS broadcasting, trusted contacts alerts, and live GPS tracking.",
-      techStack: ["Flutter", "Firebase", "Twilio API", "Google Maps API", "Speech Recognition"],
+      category: "Featured • AI-Powered Women Safety Platform (2026)",
+      tagline: "Mobile safety platform with SOS alerts, Twilio dispatch, and live GPS tracking.",
+      description: "An AI-powered mobile safety platform engineered to protect individuals with emergency SOS communication, automated Twilio alerts, and live location sharing.",
+      techStack: ["Flutter", "Firebase", "Twilio API", "Google Maps API", "Geolocation", "Cloud Backend"],
       features: [
-        "Voice-triggered emergency system with real-time speech recognition & safe word detection",
-        "Automated Twilio integration dispatching SMS & voice calls to up to 5 emergency contacts",
-        "Live geospatial location streaming & route tracking via Google Maps API",
-        "Cloud backend architecture supporting multi-user authentication & incident telemetry"
+        "Built a mobile safety application with SOS alerts, emergency communication, and live location tracking features.",
+        "Integrated Twilio APIs to send SMS and voice calls to up to 5 emergency contacts within seconds of SOS activation.",
+        "Integrated Google Maps API and Firebase backend services to enable real-time location sharing for emergency response tracking.",
+        "Expanded backend architecture supporting authentication, contact management, and emergency alert workflows for 100+ users."
       ],
       github: "https://github.com/riddhi-z1465/wesafe-ai-safety",
       demo: "#wesafe-case-study",
       hasCaseStudy: true
-    },
-    {
-      id: "salary-prediction",
-      number: "03",
-      isFeatured: false,
-      filterCategory: "data",
-      filterDisplay: "Data & ML",
-      title: "Employee Salary Prediction",
-      category: "Machine Learning & Compensation Analytics",
-      tagline: "Supervised machine learning salary prediction engine.",
-      description: "A data analytics and supervised machine learning regression pipeline that benchmarks and predicts compensation packages based on years of experience, education levels, job role domains, and specialized technical skillsets.",
-      techStack: ["Python", "Pandas", "NumPy", "Scikit-learn", "Matplotlib"],
-      features: [
-        "Comprehensive Exploratory Data Analysis (EDA) & Pearson correlation matrix",
-        "Multivariate regression modeling with optimized RMSE and R² score (0.942)",
-        "Feature importance scoring revealing primary compensation drivers",
-        "Interactive inference engine for real-time market value estimation"
-      ],
-      github: "https://github.com/riddhi-z1465/salary-prediction-ml",
-      demo: "https://github.com/riddhi-z1465/salary-prediction-ml"
-    },
-    {
-      id: "house-price",
-      number: "04",
-      isFeatured: false,
-      filterCategory: "data",
-      filterDisplay: "Data & ML",
-      title: "House Price Prediction",
-      category: "Data Science & Real Estate Valuation",
-      tagline: "Regression-based house price prediction model.",
-      description: "A real estate predictive valuation engine analyzing multidimensional housing parameters, neighborhood indices, square footage, amenities, and macroeconomic market trends to output accurate property appraisals.",
-      techStack: ["Python", "Pandas", "NumPy", "Scikit-learn", "Matplotlib"],
-      features: [
-        "Multivariate polynomial & ensemble regression modeling",
-        "Geospatial feature normalization and outlier mitigation",
-        "Cross-validated scoring ensuring minimal generalization error",
-        "Sensitivity analysis across property attributes and locations"
-      ],
-      github: "https://github.com/riddhi-z1465/house-price-prediction",
-      demo: "https://github.com/riddhi-z1465/house-price-prediction"
-    },
-    {
-      id: "availo",
-      number: "05",
-      isFeatured: false,
-      filterCategory: "web",
-      filterDisplay: "Web & Mobility",
-      title: "Availo",
-      category: "Web Application & Urban Mobility",
-      tagline: "Smart vehicle sharing platform.",
-      description: "An urban mobility web application facilitating peer-to-peer vehicle reservations with real-time inventory tracking, date-range booking calendars, dynamic fare calculations, and synchronized cloud state management.",
-      techStack: ["HTML5", "CSS3", "JavaScript", "Firebase", "Cloud DB"],
-      features: [
-        "Interactive vehicle catalog with multi-parameter filtering",
-        "Real-time availability status & responsive booking calendar",
-        "Dynamic distance & duration fare estimation algorithm",
-        "Synchronized cloud state for fleet management"
-      ],
-      github: "https://github.com/riddhi-z1465/availo-vehicle-sharing",
-      demo: "https://github.com/riddhi-z1465/availo-vehicle-sharing"
-    },
-    {
-      id: "smart-kitchen",
-      number: "06",
-      isFeatured: false,
-      filterCategory: "iot",
-      filterDisplay: "IoT & Embedded",
-      title: "Smart Kitchen Appliance Control",
-      category: "IoT Simulation & Remote Telemetry",
-      tagline: "IoT appliance control simulation.",
-      description: "An Internet of Things hardware telemetry and actuation simulation connecting virtual ESP32 microcontrollers in Wokwi to Blynk Cloud for remote relay triggering, thermal safety cutoffs, and live environment monitoring.",
-      techStack: ["Blynk Cloud", "Wokwi", "ESP32", "IoT Telemetry", "JavaScript"],
-      features: [
-        "Wokwi virtual ESP32 hardware simulation with multi-sensor input",
-        "Low-latency cloud telemetry streaming via Blynk IoT bridge",
-        "Automated thermal threshold emergency cutoffs",
-        "Interactive web dashboard for remote appliance actuation"
-      ],
-      github: "https://github.com/riddhi-z1465/smart-kitchen-iot",
-      demo: "https://github.com/riddhi-z1465/smart-kitchen-iot"
-    },
-    {
-      id: "society-management",
-      number: "07",
-      isFeatured: false,
-      filterCategory: "web",
-      filterDisplay: "Web & Enterprise",
-      title: "Society Management System",
-      category: "Web & Enterprise Portal",
-      tagline: "Digital residential society management platform.",
-      description: "A centralized digital portal for residential communities that consolidates flat directories, occupant management, official community broadcasts, monthly maintenance billing, and granular role permissions.",
-      techStack: ["HTML5", "Tailwind CSS", "JavaScript", "Firebase"],
-      features: [
-        "Resident & flat occupancy directory with status management",
-        "Digital community wall for announcements and notices",
-        "Automated maintenance billing & digital receipt generation",
-        "Granular role-based access for admins and residents"
-      ],
-      github: "https://github.com/riddhi-z1465/society-management-system",
-      demo: "https://github.com/riddhi-z1465/society-management-system"
     }
   ],
 
@@ -523,31 +425,19 @@ const PORTFOLIO_DATA = {
     }
   ],
 
-  // 23: GitHub Open Source Repos
+  // 23: GitHub Open Source Repos (Projects from Resume)
   githubRepos: [
     {
       name: "recall-lite",
       description: "AI-second brain knowledge engine with RAG pipelines, vector embeddings, pgvector, and Groq Llama 3.3 70B.",
-      techStack: "Next.js • PostgreSQL pgvector • Groq • Supabase",
+      techStack: "Next.js • Supabase • PostgreSQL pgvector • Groq Llama 3.3 70B",
       url: "https://github.com/riddhi-z1465/recall-lite"
     },
     {
       name: "wesafe-ai-safety",
-      description: "AI-powered personal safety app with speech recognition, safe word trigger, Twilio SOS, and live GPS broadcast.",
-      techStack: "Flutter • Firebase • Twilio • Google Maps",
+      description: "AI-powered women safety platform with SOS alerts, Twilio emergency dispatch, and live location sharing.",
+      techStack: "Flutter • Firebase • Twilio • Google Maps API",
       url: "https://github.com/riddhi-z1465/wesafe-ai-safety"
-    },
-    {
-      name: "salary-prediction-ml",
-      description: "Predictive machine learning regression model benchmarking employee compensation across multivariate features.",
-      techStack: "Python • Scikit-Learn • Pandas • Matplotlib",
-      url: "https://github.com/riddhi-z1465/salary-prediction-ml"
-    },
-    {
-      name: "house-price-prediction",
-      description: "Real estate data science pipeline modeling property valuations with cross-validated regression algorithms.",
-      techStack: "Python • NumPy • Pandas • Scikit-Learn",
-      url: "https://github.com/riddhi-z1465/house-price-prediction"
     }
   ]
 };

@@ -709,6 +709,10 @@ function renderSkills() {
 
 function getProjectCategoryBadge(category) {
   switch (category) {
+    case 'ai-rag':
+      return `<span class="text-xs font-mono font-bold px-2.5 py-1 rounded-full bg-[#ECFEFF] text-[#0891B2] border border-[#A5F3FC]">AI &amp; RAG</span>`;
+    case 'mobile-safety':
+      return `<span class="text-xs font-mono font-bold px-2.5 py-1 rounded-full bg-[#ECFEFF] text-[#0891B2] border border-[#A5F3FC]">MOBILE &amp; SAFETY</span>`;
     case 'ai-ml':
       return `<span class="text-xs font-mono font-bold px-2.5 py-1 rounded-full bg-[#ECFEFF] text-[#0891B2] border border-[#A5F3FC]">AI / ML</span>`;
     case 'data':
@@ -716,7 +720,7 @@ function getProjectCategoryBadge(category) {
     case 'web':
       return `<span class="text-xs font-mono font-bold px-2.5 py-1 rounded-full bg-[#ECFEFF] text-[#0891B2] border border-[#A5F3FC]">WEB DEV</span>`;
     case 'iot':
-      return `<span class="text-xs font-mono font-bold px-2.5 py-1 rounded-full bg-[#ECFEFF] text-[#0891B2] border border-[#A5F3FC]">IOT & CLOUD</span>`;
+      return `<span class="text-xs font-mono font-bold px-2.5 py-1 rounded-full bg-[#ECFEFF] text-[#0891B2] border border-[#A5F3FC]">IOT &amp; CLOUD</span>`;
     default:
       return `<span class="text-xs font-mono font-bold px-2.5 py-1 rounded-full bg-[#ECFEFF] text-[#0891B2] border border-[#A5F3FC]">${category.toUpperCase()}</span>`;
   }
