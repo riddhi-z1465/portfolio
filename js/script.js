@@ -1035,15 +1035,15 @@ function renderEducation() {
       <div class="md:col-span-8 space-y-6">
         <div>
           <h3 class="text-2xl md:text-3xl font-black text-[#111827] tracking-tight">${edu.degree}</h3>
-          <p class="text-lg text-[#64748B] font-medium">${edu.field}</p>
           <p class="text-base text-[#0891B2] font-bold mt-1">${edu.institution}</p>
+          <p class="text-xs font-mono text-[#64748B] mt-0.5">${edu.location}</p>
         </div>
         
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           ${edu.highlights.map(h => `
             <div class="p-6 rounded-2xl bg-white border border-[rgba(6,182,212,0.16)] flex items-center justify-between shadow-sm">
               <span class="text-sm text-[#64748B] font-semibold">${h.label}</span>
-              <span class="text-3xl font-mono font-black text-[#111827] stat-counter-val" data-target="${h.value}">${h.value}</span>
+              <span class="text-2xl font-mono font-black text-[#111827] stat-counter-val" data-target="${h.value}">${h.value}</span>
             </div>
           `).join('')}
         </div>

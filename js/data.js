@@ -15,9 +15,9 @@ const PORTFOLIO_DATA = {
     brandStatement: "I'm not just learning technology.<br><span class=\"text-[#111111]\">I'm building with it.</span>",
     brandWords: ["AI.", "DATA.", "SOFTWARE.", "DESIGN."],
     aboutStory: "I'm a Computer Science & Engineering student passionate about Artificial Intelligence, Data Analytics, Software Development, and building technology that solves real problems. From architecting predictive machine learning pipelines to engineering responsive, high-performance web systems, I combine analytical rigor with thoughtful human-centric design.",
-    location: "Navi Mumbai, Maharashtra, India",
+    location: "Navi Mumbai, India",
     university: "ITM Skills University",
-    academicStatus: "B.Tech CSE (2024 — 2028)",
+    academicStatus: "B.Tech in Computer Science and Engineering (2024 — 2028)",
     social: {
       github: "https://github.com/riddhi-z1465",
       linkedin: "https://linkedin.com/in/riddhizunjarrao",
@@ -364,18 +364,17 @@ const PORTFOLIO_DATA = {
     }
   ],
 
-  // 20: Education
+  // 20: Education (Exactly matching resume.pdf)
   education: {
-    degree: "B.Tech",
-    field: "Computer Science & Engineering",
+    degree: "B.Tech in Computer Science and Engineering",
     institution: "ITM Skills University",
-    location: "Navi Mumbai, Maharashtra",
+    location: "Navi Mumbai, India",
     period: "2024 — 2028",
     highlights: [
-      { label: "Degree Program", value: "B.Tech" },
-      { label: "Graduation", value: "2028" }
+      { label: "Degree Program", value: "B.Tech CSE" },
+      { label: "Graduation Year", value: "2028" }
     ],
-    details: "Focusing on Machine Learning Foundations, Data Analytics, Algorithms, and Scalable Software Architecture."
+    details: "Focusing on Artificial Intelligence, Machine Learning, Natural Language Processing, Retrieval-Augmented Generation (RAG), and Cloud-Native Software Architecture."
   },
 
   // 22: Certifications
