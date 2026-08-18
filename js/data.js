@@ -26,14 +26,14 @@ const PORTFOLIO_DATA = {
       resumePath: "assets/resume.pdf"
     },
     interests: [
-      "AI",
       "Machine Learning",
-      "Data Analytics",
+      "NLP",
       "Generative AI",
-      "AI Agents",
-      "Web Development",
-      "UI/UX",
-      "Cloud"
+      "RAG & Vector Embeddings",
+      "Full Stack Development",
+      "Cloud & AWS",
+      "Databases",
+      "Problem Solving"
     ]
   },
 
@@ -124,32 +124,55 @@ const PORTFOLIO_DATA = {
     }
   ],
 
-  // 13: Technical Skills Categories (No percentages)
+  // 13: Technical Skills Categories (Exactly matching resume.pdf)
   skills: [
     {
       number: "01",
-      category: "Programming",
-      items: ["Python", "JavaScript", "Dart", "SQL", "HTML", "CSS"]
+      category: "Programming Languages",
+      items: ["Python", "JavaScript", "Java", "C++"]
     },
     {
       number: "02",
-      category: "AI & Data",
-      items: ["NumPy", "Pandas", "Matplotlib", "Scikit-learn", "Machine Learning", "Generative AI", "AI Agents"]
+      category: "AI / ML",
+      items: [
+        "Machine Learning",
+        "Natural Language Processing (NLP)",
+        "Generative AI",
+        "Retrieval-Augmented Generation (RAG)",
+        "Vector Embeddings",
+        "Semantic Search",
+        "Prompt Engineering"
+      ]
     },
     {
       number: "03",
-      category: "Development",
-      items: ["React", "Node.js", "Express.js", "Tailwind CSS", "Flutter", "FlutterFlow"]
+      category: "Frontend Development",
+      items: ["HTML5", "CSS3", "JavaScript", "Next.js", "Tailwind CSS"]
     },
     {
       number: "04",
-      category: "Databases",
-      items: ["MySQL", "MongoDB", "Firebase", "Firestore", "Supabase"]
+      category: "Backend Development",
+      items: ["Node.js", "Express.js", "REST APIs"]
     },
     {
       number: "05",
-      category: "Cloud & Tools",
-      items: ["AWS", "Docker", "Vercel", "Git", "GitHub", "Figma", "Postman", "n8n"]
+      category: "Cloud & AWS",
+      items: ["AWS S3", "AWS EC2", "AWS Lambda", "AWS Bedrock (Learning)"]
+    },
+    {
+      number: "06",
+      category: "Databases",
+      items: ["PostgreSQL", "Supabase", "MongoDB", "MySQL", "Firebase"]
+    },
+    {
+      number: "07",
+      category: "Tools & Platforms",
+      items: ["Git", "GitHub", "Vercel", "Netlify"]
+    },
+    {
+      number: "08",
+      category: "Soft Skills",
+      items: ["Problem Solving", "Communication", "Team Collaboration"]
     }
   ],
 
