@@ -182,156 +182,63 @@
   <main class="relative z-10">
 
     <!-- =======================================================================
-         07 & 08: HERO SECTION & INTERACTIVE AI VISUALIZER
+         07: HERO SECTION
          ======================================================================= -->
-    <section id="home" class="min-h-screen pt-32 pb-20 flex items-center relative overflow-hidden bg-fine-grid">
-      <div class="max-w-6xl mx-auto px-6 sm:px-8 w-full">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+    <section id="home" class="min-h-screen pt-36 pb-24 flex items-center relative overflow-hidden bg-fine-grid">
+      <div class="max-w-5xl mx-auto px-6 sm:px-8 w-full">
+        <div class="max-w-3xl space-y-7">
 
           <!-- Hero Text Details -->
-          <div class="lg:col-span-7 space-y-6">
-            <div
-              class="hero-reveal-item inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-[#A5F3FC] shadow-sm">
-              <span class="w-2 h-2 rounded-full bg-[#06B6D4] animate-pulse"></span>
-              <span class="text-[11px] font-mono tracking-wider text-[#0891B2] uppercase font-bold">
-                B.TECH CSE • AI • DATA • SOFTWARE
-              </span>
-            </div>
+          <div
+            class="hero-reveal-item inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-[#A5F3FC] shadow-sm">
+            <span class="w-2 h-2 rounded-full bg-[#06B6D4] animate-pulse"></span>
+            <span class="text-[11px] font-mono tracking-wider text-[#0891B2] uppercase font-bold">
+              B.TECH CSE • AI • DATA • SOFTWARE
+            </span>
+          </div>
 
+          <div class="space-y-3">
             <h1
-              class="hero-reveal-item text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight text-[#111827] leading-[1.06]">
+              class="hero-reveal-item text-5xl sm:text-7xl lg:text-8xl font-black tracking-tight text-[#111827] leading-[1.04]">
               Hi, I'm<br>
               <span class="gradient-text-cyan">Riddhi Zunjarrao.</span>
             </h1>
 
             <h2
-              class="hero-reveal-item text-2xl sm:text-3xl lg:text-4xl font-bold text-[#64748B] tracking-tight leading-snug">
+              class="hero-reveal-item text-2xl sm:text-4xl lg:text-5xl font-bold text-[#64748B] tracking-tight leading-snug">
               I build intelligent<br>
               <span class="gradient-text-cyan font-extrabold">digital experiences.</span>
             </h2>
-
-            <p class="hero-reveal-item text-base sm:text-lg text-[#64748B] max-w-xl leading-relaxed">
-              Exploring AI, data, software and human-centered technology to turn ideas into meaningful digital
-              experiences.
-            </p>
-
-            <div class="hero-reveal-item flex flex-wrap items-center gap-4 pt-4">
-              <a href="#projects" class="magnetic-btn btn-apple-primary px-8 py-4 text-sm font-semibold">
-                Explore My Work <span class="btn-arrow">→</span>
-              </a>
-              <a href="assets/resume.pdf" target="_blank" download="Riddhi_Zunjarrao_Resume.pdf"
-                class="magnetic-btn btn-apple-white px-8 py-4 text-sm font-semibold">
-                Download Resume
-              </a>
-            </div>
-
-            <div
-              class="hero-reveal-item flex items-center gap-2 pt-6 border-t border-[#E2E8F0] text-xs font-mono text-[#64748B]">
-              <a href="https://github.com/riddhi-z1465" target="_blank" rel="noopener noreferrer"
-                class="social-link-item font-medium">
-                <i data-lucide="github" class="w-3.5 h-3.5"></i> GitHub
-              </a>
-              <a href="https://linkedin.com/in/riddhizunjarrao" target="_blank" rel="noopener noreferrer"
-                class="social-link-item font-medium">
-                <i data-lucide="linkedin" class="w-3.5 h-3.5"></i> LinkedIn
-              </a>
-              <a href="mailto:riddhizunjarrao669@gmail.com" class="social-link-item font-medium">
-                <i data-lucide="mail" class="w-3.5 h-3.5"></i> Email
-              </a>
-            </div>
           </div>
 
-          <!-- Hero Abstract Visual (Pure Cyan Theme) -->
-          <div id="hero-tech-visual" class="lg:col-span-5 flex justify-center">
-            <div
-              class="w-full max-w-md aspect-square rounded-3xl p-6 bg-white/90 backdrop-blur-xl border border-[rgba(6,182,212,0.18)] flex flex-col justify-between relative shadow-sm hover:shadow-md transition-all group">
+          <p class="hero-reveal-item text-lg sm:text-xl text-[#64748B] max-w-2xl leading-relaxed">
+            Exploring AI, data, software and human-centered technology to turn ideas into meaningful digital
+            experiences.
+          </p>
 
-              <!-- Top Metadata Header -->
-              <div class="flex items-center justify-between text-xs font-mono text-[#64748B]">
-                <span class="flex items-center gap-1.5">
-                  <span class="w-2 h-2 rounded-full bg-[#06B6D4] animate-pulse"></span>
-                  <span class="text-[#0891B2] font-bold">AI / DATA LAB</span>
-                </span>
-                <span>ITM SKILLS UNIV</span>
-              </div>
+          <div class="hero-reveal-item flex flex-wrap items-center gap-4 pt-2">
+            <a href="#projects" class="magnetic-btn btn-apple-primary px-8 py-4 text-sm font-semibold">
+              Explore My Work <span class="btn-arrow">→</span>
+            </a>
+            <a href="assets/resume.pdf" target="_blank" download="Riddhi_Zunjarrao_Resume.pdf"
+              class="magnetic-btn btn-apple-white px-8 py-4 text-sm font-semibold">
+              Download Resume
+            </a>
+          </div>
 
-              <!-- Interactive Node Graph SVG (Pure Cyan System) -->
-              <div class="relative w-full aspect-square my-2 flex items-center justify-center">
-                <svg id="hero-interactive-svg" viewBox="0 0 320 320" class="w-full h-full"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <defs>
-                    <linearGradient id="hero-ai-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stop-color="#0E7490" />
-                      <stop offset="100%" stop-color="#06B6D4" />
-                    </linearGradient>
-                    <radialGradient id="hero-ai-glow" cx="50%" cy="50%" r="50%">
-                      <stop offset="0%" stop-color="#06B6D4" stop-opacity="0.3" />
-                      <stop offset="100%" stop-color="#0891B2" stop-opacity="0" />
-                    </radialGradient>
-                  </defs>
-
-                  <!-- Orbital rings -->
-                  <circle cx="160" cy="160" r="130" stroke="#CFFAFE" stroke-width="1" fill="none"
-                    stroke-dasharray="3 3" />
-                  <circle cx="160" cy="160" r="92" stroke="rgba(6, 182, 212, 0.25)" stroke-width="1.2" fill="none" />
-                  <circle cx="160" cy="160" r="54" stroke="rgba(6, 182, 212, 0.35)" stroke-width="1.5" fill="none" />
-
-                  <!-- Ambient Glow -->
-                  <circle cx="160" cy="160" r="46" fill="url(#hero-ai-glow)" class="hero-node-pulse" />
-
-                  <!-- Connecting lines -->
-                  <line x1="160" y1="160" x2="80" y2="85" stroke="#06B6D4" stroke-width="1.2" stroke-opacity="0.45" />
-                  <line x1="160" y1="160" x2="245" y2="90" stroke="#0891B2" stroke-width="1.2" stroke-opacity="0.45" />
-                  <line x1="160" y1="160" x2="235" y2="235" stroke="#06B6D4" stroke-width="1.2" stroke-opacity="0.45" />
-                  <line x1="160" y1="160" x2="85" y2="230" stroke="#22D3EE" stroke-width="1.2" stroke-opacity="0.5" />
-
-                  <!-- Center AI Node -->
-                  <g class="interactive-node" data-label="AI Core">
-                    <circle cx="160" cy="160" r="18" fill="url(#hero-ai-grad)" />
-                    <circle cx="160" cy="160" r="26" stroke="rgba(6,182,212,0.45)" stroke-width="1.5" fill="none"
-                      class="radar-anim-ring" />
-                    <text x="160" y="164" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="9"
-                      font-weight="700" text-anchor="middle">AI</text>
-                  </g>
-
-                  <!-- Data Node (Cyan) -->
-                  <g class="interactive-node" data-label="Data Science">
-                    <circle cx="80" cy="85" r="8.5" fill="#06B6D4" />
-                    <text x="80" y="70" fill="#0891B2" font-family="'JetBrains Mono', monospace" font-size="9"
-                      font-weight="700" text-anchor="middle">DATA</text>
-                  </g>
-
-                  <!-- Code Node (Cyan Deep) -->
-                  <g class="interactive-node" data-label="Code Architecture">
-                    <circle cx="245" cy="90" r="8.5" fill="#0891B2" />
-                    <text x="245" y="75" fill="#0891B2" font-family="'JetBrains Mono', monospace" font-size="9"
-                      font-weight="700" text-anchor="middle">CODE</text>
-                  </g>
-
-                  <!-- Ideas Node (Cyan Light) -->
-                  <g class="interactive-node" data-label="Ideas & Innovation">
-                    <circle cx="235" cy="235" r="8.5" fill="#22D3EE" />
-                    <text x="235" y="255" fill="#0891B2" font-family="'JetBrains Mono', monospace" font-size="9"
-                      font-weight="700" text-anchor="middle">IDEAS</text>
-                  </g>
-
-                  <!-- Design Node (Cyan) -->
-                  <g class="interactive-node" data-label="Design System">
-                    <circle cx="85" cy="230" r="8.5" fill="#06B6D4" />
-                    <text x="85" y="250" fill="#0891B2" font-family="'JetBrains Mono', monospace" font-size="9"
-                      font-weight="700" text-anchor="middle">DESIGN</text>
-                  </g>
-                </svg>
-              </div>
-
-              <!-- Bottom Status Indicators -->
-              <div
-                class="pt-3 border-t border-[#E2E8F0] flex items-center justify-between text-[11px] font-mono text-[#64748B]">
-                <span>Status: <strong class="text-[#111827]">B.Tech CSE</strong></span>
-                <span class="text-[#0891B2] font-semibold">Interactive Physics Active</span>
-              </div>
-
-            </div>
+          <div
+            class="hero-reveal-item flex items-center gap-6 pt-6 border-t border-[#E2E8F0] text-xs font-mono text-[#64748B]">
+            <a href="https://github.com/riddhi-z1465" target="_blank" rel="noopener noreferrer"
+              class="social-link-item font-medium">
+              <i data-lucide="github" class="w-4 h-4"></i> GitHub
+            </a>
+            <a href="https://linkedin.com/in/riddhizunjarrao" target="_blank" rel="noopener noreferrer"
+              class="social-link-item font-medium">
+              <i data-lucide="linkedin" class="w-4 h-4"></i> LinkedIn
+            </a>
+            <a href="mailto:riddhizunjarrao669@gmail.com" class="social-link-item font-medium">
+              <i data-lucide="mail" class="w-4 h-4"></i> Email
+            </a>
           </div>
 
         </div>

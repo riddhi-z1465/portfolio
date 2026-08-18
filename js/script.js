@@ -192,7 +192,7 @@ function initCustomCursor() {
       gsap.to(cursorDot, { scale: 0.7, duration: 0.15 });
     }
     // Cards & Visual containers
-    else if (target.closest('.tilt-card-3d, .apple-showcase-card, .what-i-build-card, .journey-card, .cert-card-img-wrap, #hero-tech-visual')) {
+    else if (target.closest('.tilt-card-3d, .apple-showcase-card, .what-i-build-card, .journey-card, .cert-card-img-wrap')) {
       cursorFollower.classList.add('is-hover-card');
       gsap.to(cursorDot, { scale: 0.8, duration: 0.15 });
     }
@@ -205,7 +205,7 @@ function initCustomCursor() {
 
   document.addEventListener('mouseout', (e) => {
     const target = e.target;
-    if (target.closest('a, button, .magnetic-btn, .filter-btn, .view-cert-btn, .open-case-study-btn, .tilt-card-3d, .apple-showcase-card, .what-i-build-card, .journey-card, .cert-card-img-wrap, #hero-tech-visual, input, textarea')) {
+    if (target.closest('a, button, .magnetic-btn, .filter-btn, .view-cert-btn, .open-case-study-btn, .tilt-card-3d, .apple-showcase-card, .what-i-build-card, .journey-card, .cert-card-img-wrap, input, textarea')) {
       cursorFollower.className = 'pointer-events-none fixed z-[9999998] -translate-x-1/2 -translate-y-1/2';
       gsap.to(cursorDot, { scale: 1, duration: 0.15 });
     }
@@ -388,14 +388,7 @@ function revealHeroAndNav() {
       duration: 0.9,
       stagger: 0.08,
       ease: 'power4.out'
-    }, '-=0.5')
-    .from('#hero-tech-visual', {
-      scale: 0.88,
-      opacity: 0,
-      rotationY: 15,
-      duration: 1.2,
-      ease: 'power3.out'
-    }, '-=0.7');
+    }, '-=0.5');
 }
 
 /* ==========================================================================
