@@ -951,29 +951,6 @@ function renderCertifications() {
             <i data-lucide="building-2" class="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400 shrink-0"></i>
             <span class="truncate">Issuing Organization: <strong class="text-slate-900 dark:text-slate-200 font-semibold">${cert.organization}</strong></span>
           </div>
-
-          <!-- Credential ID / Verification Status Chip -->
-          <div class="pt-1">
-            ${hasCredId ? `
-              <div class="text-[11px] font-mono text-slate-600 dark:text-slate-300 bg-slate-50 dark:bg-slate-800/60 px-2.5 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700/60 flex items-center justify-between gap-2 max-w-full">
-                <div class="flex items-center gap-1.5 min-w-0 truncate">
-                  <span class="text-cyan-600 dark:text-cyan-400 font-bold shrink-0">Credential ID:</span>
-                  <span class="select-all truncate font-mono text-slate-800 dark:text-slate-200">${cert.credentialId}</span>
-                </div>
-                <button type="button" class="copy-cred-id-btn text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors p-1 rounded hover:bg-slate-200/60 dark:hover:bg-slate-700 shrink-0" data-cred-id="${cert.credentialId}" title="Copy Credential ID" aria-label="Copy Credential ID">
-                  <i data-lucide="copy" class="w-3.5 h-3.5"></i>
-                </button>
-              </div>
-            ` : `
-              <div class="text-[11px] font-mono text-slate-500 dark:text-slate-400 bg-slate-50/60 dark:bg-slate-800/30 px-2.5 py-1.5 rounded-lg border border-slate-200/60 dark:border-slate-700/40 flex items-center justify-between gap-2">
-                <div class="flex items-center gap-1.5">
-                  <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-500"></i>
-                  <span>Institutional Credential</span>
-                </div>
-                <span class="text-[10px] text-slate-400 font-medium">Direct Verified</span>
-              </div>
-            `}
-          </div>
         </div>
       </div>
 
@@ -1084,26 +1061,6 @@ function initCertificateModal() {
   const container = document.getElementById('certifications-container');
   if (container) {
     container.addEventListener('click', (e) => {
-      // Check for copy button first
-      const copyBtn = e.target.closest('.copy-cred-id-btn');
-      if (copyBtn) {
-        e.preventDefault();
-        e.stopPropagation();
-        const credId = copyBtn.getAttribute('data-cred-id');
-        if (credId && navigator.clipboard) {
-          navigator.clipboard.writeText(credId).then(() => {
-            const originalHTML = copyBtn.innerHTML;
-            copyBtn.innerHTML = '<i data-lucide="check" class="w-3.5 h-3.5 text-emerald-500"></i>';
-            if (window.lucide) window.lucide.createIcons();
-            setTimeout(() => {
-              copyBtn.innerHTML = originalHTML;
-              if (window.lucide) window.lucide.createIcons();
-            }, 2000);
-          }).catch(err => console.error('Copy failed:', err));
-        }
-        return;
-      }
-
       const trigger = e.target.closest('[data-cert-id]');
       if (!trigger) return;
 
