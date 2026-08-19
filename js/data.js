@@ -131,46 +131,46 @@ const PORTFOLIO_DATA = {
       category: "Programming Languages",
       items: ["Python", "JavaScript", "Java", "C++"]
     },
+    // {
+    //   number: "02",
+    //   category: "AI / ML",
+    //   items: [
+    //     "Machine Learning",
+    //     "Natural Language Processing (NLP)",
+    //     "Generative AI",
+    //     "Retrieval-Augmented Generation (RAG)",
+    //     "Vector Embeddings",
+    //     "Semantic Search",
+    //     "Prompt Engineering"
+    //   ]
+    // },
     {
       number: "02",
-      category: "AI / ML",
-      items: [
-        "Machine Learning",
-        "Natural Language Processing (NLP)",
-        "Generative AI",
-        "Retrieval-Augmented Generation (RAG)",
-        "Vector Embeddings",
-        "Semantic Search",
-        "Prompt Engineering"
-      ]
+      category: "Frontend Development",
+      items: ["HTML5", "CSS3", "JavaScript", "react.js", "Next.js", "Tailwind CSS"]
     },
     {
       number: "03",
-      category: "Frontend Development",
-      items: ["HTML5", "CSS3", "JavaScript", "Next.js", "Tailwind CSS"]
-    },
-    {
-      number: "04",
       category: "Backend Development",
       items: ["Node.js", "Express.js", "REST APIs"]
     },
+    // {
+    //   number: "04",
+    //   category: "Cloud & AWS",
+    //   items: ["AWS S3", "AWS EC2", "AWS Lambda", "AWS Bedrock (Learning)"]
+    // },
     {
-      number: "05",
-      category: "Cloud & AWS",
-      items: ["AWS S3", "AWS EC2", "AWS Lambda", "AWS Bedrock (Learning)"]
-    },
-    {
-      number: "06",
+      number: "04",
       category: "Databases",
       items: ["PostgreSQL", "Supabase", "MongoDB", "MySQL", "Firebase"]
     },
     {
-      number: "07",
+      number: "05",
       category: "Tools & Platforms",
       items: ["Git", "GitHub", "Vercel", "Netlify"]
     },
     {
-      number: "08",
+      number: "06",
       category: "Soft Skills",
       items: ["Problem Solving", "Communication", "Team Collaboration"]
     }
