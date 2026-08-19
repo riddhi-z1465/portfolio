@@ -704,185 +704,19 @@ function renderSkills() {
 function getProjectCategoryBadge(category) {
   switch (category) {
     case 'ai-rag':
-      return `<span class="text-xs font-mono font-bold px-2.5 py-1 rounded-full bg-[#ECFEFF] text-[#0891B2] border border-[#A5F3FC]">AI &amp; RAG</span>`;
+      return `<span class="text-xs font-mono font-bold px-2.5 py-1 rounded-full bg-[#ECFEFF] dark:bg-cyan-950/60 text-[#0891B2] dark:text-[#22D3EE] border border-[#A5F3FC] dark:border-cyan-800/60">AI &amp; RAG</span>`;
     case 'mobile-safety':
-      return `<span class="text-xs font-mono font-bold px-2.5 py-1 rounded-full bg-[#ECFEFF] text-[#0891B2] border border-[#A5F3FC]">MOBILE &amp; SAFETY</span>`;
+      return `<span class="text-xs font-mono font-bold px-2.5 py-1 rounded-full bg-[#ECFEFF] dark:bg-cyan-950/60 text-[#0891B2] dark:text-[#22D3EE] border border-[#A5F3FC] dark:border-cyan-800/60">MOBILE &amp; SAFETY</span>`;
     case 'ai-ml':
-      return `<span class="text-xs font-mono font-bold px-2.5 py-1 rounded-full bg-[#ECFEFF] text-[#0891B2] border border-[#A5F3FC]">AI / ML</span>`;
+      return `<span class="text-xs font-mono font-bold px-2.5 py-1 rounded-full bg-[#ECFEFF] dark:bg-cyan-950/60 text-[#0891B2] dark:text-[#22D3EE] border border-[#A5F3FC] dark:border-cyan-800/60">AI / ML</span>`;
     case 'data':
-      return `<span class="text-xs font-mono font-bold px-2.5 py-1 rounded-full bg-[#ECFEFF] text-[#0891B2] border border-[#A5F3FC]">DATA SCIENCE</span>`;
+      return `<span class="text-xs font-mono font-bold px-2.5 py-1 rounded-full bg-[#ECFEFF] dark:bg-cyan-950/60 text-[#0891B2] dark:text-[#22D3EE] border border-[#A5F3FC] dark:border-cyan-800/60">DATA SCIENCE</span>`;
     case 'web':
-      return `<span class="text-xs font-mono font-bold px-2.5 py-1 rounded-full bg-[#ECFEFF] text-[#0891B2] border border-[#A5F3FC]">WEB DEV</span>`;
+      return `<span class="text-xs font-mono font-bold px-2.5 py-1 rounded-full bg-[#ECFEFF] dark:bg-cyan-950/60 text-[#0891B2] dark:text-[#22D3EE] border border-[#A5F3FC] dark:border-cyan-800/60">WEB DEV</span>`;
     case 'iot':
-      return `<span class="text-xs font-mono font-bold px-2.5 py-1 rounded-full bg-[#ECFEFF] text-[#0891B2] border border-[#A5F3FC]">IOT &amp; CLOUD</span>`;
+      return `<span class="text-xs font-mono font-bold px-2.5 py-1 rounded-full bg-[#ECFEFF] dark:bg-cyan-950/60 text-[#0891B2] dark:text-[#22D3EE] border border-[#A5F3FC] dark:border-cyan-800/60">IOT &amp; CLOUD</span>`;
     default:
-      return `<span class="text-xs font-mono font-bold px-2.5 py-1 rounded-full bg-[#ECFEFF] text-[#0891B2] border border-[#A5F3FC]">${category.toUpperCase()}</span>`;
-  }
-}
-
-function getProjectSvgVisual(project) {
-  switch (project.id) {
-    case 'recall-lite':
-      return `
-        <svg viewBox="0 0 500 300" class="w-full h-full bg-[#F8FAFC]" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="rag-cyan-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#0891B2"/>
-              <stop offset="50%" stop-color="#06B6D4"/>
-              <stop offset="100%" stop-color="#22D3EE"/>
-            </linearGradient>
-            <radialGradient id="rag-glow" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="#06B6D4" stop-opacity="0.2"/>
-              <stop offset="100%" stop-color="transparent" stop-opacity="0"/>
-            </radialGradient>
-          </defs>
-          
-          <!-- Background Glow & Grid Lines -->
-          <circle cx="250" cy="150" r="130" fill="url(#rag-glow)"/>
-          <line x1="50" y1="150" x2="450" y2="150" stroke="#E2E8F0" stroke-width="1.5" stroke-dasharray="4 4"/>
-          
-          <!-- Connectors with Flow Arrows -->
-          <path d="M120,150 C170,95 190,95 240,95" fill="none" stroke="url(#rag-cyan-grad)" stroke-width="2.5"/>
-          <path d="M120,150 C170,205 190,205 240,205" fill="none" stroke="url(#rag-cyan-grad)" stroke-width="2.5"/>
-          <path d="M260,95 C310,95 330,150 380,150" fill="none" stroke="url(#rag-cyan-grad)" stroke-width="2.5"/>
-          <path d="M260,205 C310,205 330,150 380,150" fill="none" stroke="url(#rag-cyan-grad)" stroke-width="2.5"/>
-          <line x1="120" y1="150" x2="380" y2="150" stroke="#0891B2" stroke-width="1.5" stroke-dasharray="2 4"/>
-
-          <!-- Node 1: Input Query / Docs (500+) -->
-          <rect x="55" y="125" width="105" height="50" rx="10" fill="#FFFFFF" stroke="#0891B2" stroke-width="2"/>
-          <text x="107" y="146" fill="#0891B2" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" text-anchor="middle">500+ DOCS</text>
-          <text x="107" y="161" fill="#64748B" font-family="'JetBrains Mono', monospace" font-size="8.5" text-anchor="middle">Query &amp; Chunks</text>
-
-          <!-- Node 2: pgvector Embedding Search (Top) -->
-          <rect x="195" y="70" width="110" height="50" rx="10" fill="#FFFFFF" stroke="#06B6D4" stroke-width="2"/>
-          <text x="250" y="91" fill="#0891B2" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" text-anchor="middle">PGVECTOR</text>
-          <text x="250" y="106" fill="#64748B" font-family="'JetBrains Mono', monospace" font-size="8.5" text-anchor="middle">Vector Match</text>
-
-          <!-- Node 3: Supabase Auth & RLS (Bottom) -->
-          <rect x="195" y="180" width="110" height="50" rx="10" fill="#FFFFFF" stroke="#06B6D4" stroke-width="2"/>
-          <text x="250" y="201" fill="#0891B2" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" text-anchor="middle">SUPABASE</text>
-          <text x="250" y="216" fill="#64748B" font-family="'JetBrains Mono', monospace" font-size="8.5" text-anchor="middle">RLS Security</text>
-
-          <!-- Node 4: Groq Llama 3.3 70B (Output) -->
-          <rect x="335" y="125" width="110" height="50" rx="10" fill="url(#rag-cyan-grad)" stroke="#0891B2" stroke-width="1.5"/>
-          <text x="390" y="146" fill="#FFFFFF" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="800" text-anchor="middle">GROQ 70B</text>
-          <text x="390" y="161" fill="#ECFEFF" font-family="'JetBrains Mono', monospace" font-size="8.5" font-weight="600" text-anchor="middle">Grounded Ans</text>
-
-          <!-- Title text -->
-          <text x="250" y="38" fill="#0891B2" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle" letter-spacing="1.5">RETRIEVAL-AUGMENTED GENERATION (RAG)</text>
-          <text x="250" y="270" fill="#64748B" font-family="'JetBrains Mono', monospace" font-size="9.5" text-anchor="middle">SUB-SECOND SIMILARITY SEARCH • CONVERSATIONAL AI</text>
-        </svg>
-      `;
-    case 'wesafe':
-      return `
-        <svg viewBox="0 0 500 300" class="w-full h-full bg-[#F8FAFC]" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <radialGradient id="wesafe-cyan-pulse" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="#06B6D4" stop-opacity="0.25"/>
-              <stop offset="70%" stop-color="#0891B2" stop-opacity="0.08"/>
-              <stop offset="100%" stop-color="transparent" stop-opacity="0"/>
-            </radialGradient>
-            <linearGradient id="wesafe-wave" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#0891B2"/>
-              <stop offset="50%" stop-color="#06B6D4"/>
-              <stop offset="100%" stop-color="#22D3EE"/>
-            </linearGradient>
-          </defs>
-          <circle cx="250" cy="150" r="125" fill="url(#wesafe-cyan-pulse)"/>
-          <circle cx="250" cy="150" r="95" stroke="rgba(6, 182, 212, 0.35)" stroke-width="1.5" stroke-dasharray="6 6" fill="none"/>
-          <circle cx="250" cy="150" r="60" stroke="#0891B2" stroke-width="1.5" fill="none"/>
-          <circle cx="250" cy="150" r="14" fill="#06B6D4"/>
-          <path d="M60,150 Q150,85 250,150 T440,150" fill="none" stroke="url(#wesafe-wave)" stroke-width="2.5"/>
-          <circle cx="150" cy="115" r="6" fill="#0891B2" stroke="#FFFFFF" stroke-width="1.5"/>
-          <circle cx="350" cy="185" r="6" fill="#06B6D4" stroke="#FFFFFF" stroke-width="1.5"/>
-          <text x="250" y="45" fill="#0891B2" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle" letter-spacing="2">VOICE AI & GEOSPATIAL SOS ACTIVE</text>
-          <text x="250" y="270" fill="#64748B" font-family="'JetBrains Mono', monospace" font-size="10" text-anchor="middle">SPEECH RECOGNITION • EMERGENCY DISPATCH</text>
-        </svg>
-      `;
-    case 'salary-prediction':
-      return `
-        <svg viewBox="0 0 500 300" class="w-full h-full bg-[#F8FAFC]" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="bar-cyan" x1="0%" y1="100%" x2="0%" y2="0%">
-              <stop offset="0%" stop-color="#0891B2"/>
-              <stop offset="100%" stop-color="#22D3EE"/>
-            </linearGradient>
-            <linearGradient id="line-cyan" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#0891B2"/>
-              <stop offset="100%" stop-color="#06B6D4"/>
-            </linearGradient>
-          </defs>
-          <line x1="60" y1="240" x2="440" y2="240" stroke="#E2E8F0" stroke-width="1.5"/>
-          <rect x="90" y="160" width="36" height="80" rx="4" fill="rgba(6, 182, 212, 0.25)"/>
-          <rect x="150" y="120" width="36" height="120" rx="4" fill="rgba(6, 182, 212, 0.45)"/>
-          <rect x="210" y="90" width="36" height="150" rx="4" fill="url(#bar-cyan)"/>
-          <rect x="270" y="65" width="36" height="175" rx="4" fill="#0891B2"/>
-          <rect x="330" y="105" width="36" height="135" rx="4" fill="rgba(6, 182, 212, 0.45)"/>
-          <path d="M80,205 C180,180 250,55 420,45" fill="none" stroke="url(#line-cyan)" stroke-width="3"/>
-          <circle cx="288" cy="65" r="6" fill="#ffffff" stroke="#0891B2" stroke-width="2.5"/>
-          <text x="60" y="40" fill="#0891B2" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">COMPENSATION REGRESSION PIPELINE</text>
-          <text x="440" y="40" fill="#0891B2" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" text-anchor="end">R²: 0.942</text>
-        </svg>
-      `;
-    case 'house-price':
-      return `
-        <svg viewBox="0 0 500 300" class="w-full h-full bg-[#F8FAFC]" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="house-cyan-grad" x1="0%" y1="100%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#0891B2"/>
-              <stop offset="100%" stop-color="#22D3EE"/>
-            </linearGradient>
-          </defs>
-          <line x1="60" y1="240" x2="440" y2="240" stroke="#E2E8F0" stroke-width="1.5"/>
-          <line x1="60" y1="50" x2="60" y2="240" stroke="#E2E8F0" stroke-width="1.5"/>
-          <circle cx="100" cy="200" r="5.5" fill="#64748B" opacity="0.6"/>
-          <circle cx="150" cy="180" r="6" fill="#06B6D4" opacity="0.75"/>
-          <circle cx="210" cy="150" r="6.5" fill="#0891B2" opacity="0.85"/>
-          <circle cx="280" cy="115" r="7" fill="#06B6D4"/>
-          <circle cx="360" cy="80" r="7" fill="#0891B2"/>
-          <circle cx="410" cy="60" r="8" fill="#ffffff" stroke="#0891B2" stroke-width="2.5"/>
-          <line x1="60" y1="230" x2="440" y2="50" stroke="url(#house-cyan-grad)" stroke-width="2.5"/>
-          <text x="60" y="38" fill="#0891B2" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">GEOSPATIAL REAL ESTATE VALUATION</text>
-        </svg>
-      `;
-    case 'availo':
-      return `
-        <svg viewBox="0 0 500 300" class="w-full h-full bg-[#F8FAFC]" xmlns="http://www.w3.org/2000/svg">
-          <rect x="50" y="50" width="400" height="200" rx="16" fill="#FFFFFF" stroke="rgba(6,182,212,0.2)" stroke-width="1.5"/>
-          <circle cx="120" cy="150" r="8" fill="#0891B2"/>
-          <circle cx="250" cy="110" r="12" fill="rgba(6, 182, 212, 0.15)" stroke="#06B6D4" stroke-width="2"/>
-          <circle cx="250" cy="110" r="4.5" fill="#0891B2"/>
-          <circle cx="380" cy="180" r="8" fill="#22D3EE"/>
-          <path d="M120,150 Q250,90 380,180" fill="none" stroke="#06B6D4" stroke-width="2" stroke-dasharray="6 4"/>
-          <text x="250" y="225" fill="#0891B2" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle">URBAN MOBILITY & FLEET ENGINE</text>
-        </svg>
-      `;
-    case 'smart-kitchen':
-      return `
-        <svg viewBox="0 0 500 300" class="w-full h-full bg-[#F8FAFC]" xmlns="http://www.w3.org/2000/svg">
-          <rect x="180" y="90" width="140" height="110" rx="10" fill="#FFFFFF" stroke="#06B6D4" stroke-width="2"/>
-          <text x="250" y="145" fill="#111127" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="700" text-anchor="middle">ESP32 MCU</text>
-          <text x="250" y="168" fill="#0891B2" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" text-anchor="middle">WOKWI + BLYNK</text>
-          <path d="M60,145 H180 M320,145 H440" stroke="#06B6D4" stroke-width="2" stroke-dasharray="4 4"/>
-          <circle cx="90" cy="145" r="6" fill="#06B6D4"/>
-          <circle cx="410" cy="145" r="6" fill="#0891B2"/>
-          <text x="250" y="45" fill="#0891B2" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle">CLOUD TELEMETRY & CUTOFF CONTROL</text>
-        </svg>
-      `;
-    case 'society-management':
-      return `
-        <svg viewBox="0 0 500 300" class="w-full h-full bg-[#F8FAFC]" xmlns="http://www.w3.org/2000/svg">
-          <rect x="60" y="70" width="110" height="160" rx="10" fill="#FFFFFF" stroke="rgba(6,182,212,0.25)" stroke-width="1.5"/>
-          <rect x="195" y="70" width="110" height="160" rx="10" fill="#FFFFFF" stroke="rgba(6,182,212,0.35)" stroke-width="1.5"/>
-          <rect x="330" y="70" width="110" height="160" rx="10" fill="#FFFFFF" stroke="rgba(6,182,212,0.25)" stroke-width="1.5"/>
-          <text x="115" y="110" fill="#0891B2" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle">RESIDENTS</text>
-          <text x="250" y="110" fill="#06B6D4" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle">NOTICES</text>
-          <text x="385" y="110" fill="#0E7490" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle">BILLING</text>
-          <text x="250" y="42" fill="#111127" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle">RESIDENTIAL COMMUNITY ARCHITECTURE</text>
-        </svg>
-      `;
-    default:
-      return '';
+      return `<span class="text-xs font-mono font-bold px-2.5 py-1 rounded-full bg-[#ECFEFF] dark:bg-cyan-950/60 text-[#0891B2] dark:text-[#22D3EE] border border-[#A5F3FC] dark:border-cyan-800/60">${category.toUpperCase()}</span>`;
   }
 }
 
@@ -895,66 +729,58 @@ function renderProjectsShowcase(filter = 'all') {
     : PORTFOLIO_DATA.projects.filter(p => p.filterCategory === filter);
 
   container.innerHTML = filteredProjects.map(p => `
-    <div class="apple-showcase-card project-showcase-item p-8 sm:p-12 lg:p-14 mb-12 last:mb-0" data-project-id="${p.id}" data-category="${p.filterCategory}">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+    <div class="apple-showcase-card project-showcase-item p-8 sm:p-12 lg:p-14 mb-10 last:mb-0" data-project-id="${p.id}" data-category="${p.filterCategory}">
+      <div class="space-y-6">
         
-        <!-- Text details -->
-        <div class="lg:col-span-6 space-y-6 order-2 lg:order-1">
-          <div class="space-y-2">
-            <div class="flex items-center gap-3">
-              <span class="text-xs font-mono text-[#0891B2] font-bold">PROJECT ${p.number}</span>
-              ${getProjectCategoryBadge(p.filterCategory)}
-            </div>
-            <h3 class="text-3xl sm:text-4xl lg:text-5xl font-black text-[#111827] tracking-tight group-hover:text-[#0891B2] transition-colors">${p.title}</h3>
-            <p class="text-lg text-[#0891B2] font-semibold leading-snug">${p.tagline}</p>
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <div class="flex items-center gap-3">
+            <span class="text-xs font-mono text-[#0891B2] dark:text-[#22D3EE] font-bold">PROJECT ${p.number}</span>
+            ${getProjectCategoryBadge(p.filterCategory)}
           </div>
+        </div>
 
-          <p class="text-sm sm:text-base text-[#64748B] leading-relaxed">
-            ${p.description}
-          </p>
+        <div class="space-y-2">
+          <h3 class="text-3xl sm:text-4xl lg:text-5xl font-black text-[#111827] dark:text-[#F8FAFC] tracking-tight group-hover:text-[#0891B2] dark:group-hover:text-[#22D3EE] transition-colors">${p.title}</h3>
+          <p class="text-lg text-[#0891B2] dark:text-[#22D3EE] font-semibold leading-snug">${p.tagline}</p>
+        </div>
 
-          <div class="space-y-2 pt-2">
-            <h4 class="text-xs uppercase font-mono tracking-wider text-[#64748B] font-bold">Core Highlights</h4>
-            <ul class="space-y-2 text-sm text-[#111827]">
-              ${p.features.map(f => `
-                <li class="flex items-start gap-2.5">
-                  <i data-lucide="check" class="w-4 h-4 text-[#0891B2] mt-0.5 shrink-0"></i>
-                  <span>${f}</span>
-                </li>
-              `).join('')}
-            </ul>
+        <p class="text-sm sm:text-base text-[#64748B] dark:text-[#94A3B8] leading-relaxed max-w-4xl">
+          ${p.description}
+        </p>
+
+        <div class="space-y-2 pt-2">
+          <h4 class="text-xs uppercase font-mono tracking-wider text-[#64748B] dark:text-[#94A3B8] font-bold">Core Highlights</h4>
+          <ul class="grid grid-cols-1 md:grid-cols-2 gap-2.5 text-sm text-[#111827] dark:text-[#F8FAFC]">
+            ${p.features.map(f => `
+              <li class="flex items-start gap-2.5">
+                <i data-lucide="check" class="w-4 h-4 text-[#0891B2] dark:text-[#22D3EE] mt-0.5 shrink-0"></i>
+                <span>${f}</span>
+              </li>
+            `).join('')}
+          </ul>
+        </div>
+
+        <div class="pt-2">
+          <span class="text-xs font-mono text-[#64748B] dark:text-[#94A3B8] block mb-2 font-semibold">Technologies</span>
+          <div class="flex flex-wrap gap-2">
+            ${p.techStack.map(t => `<span class="text-xs font-mono px-3 py-1 rounded-full bg-white dark:bg-slate-800/80 border border-[#E2E8F0] dark:border-slate-700/80 text-[#111827] dark:text-[#F8FAFC] font-medium hover:border-[#A5F3FC] hover:text-[#0891B2] dark:hover:text-[#22D3EE] transition-colors">${t}</span>`).join('')}
           </div>
+        </div>
 
-          <div class="pt-2">
-            <span class="text-xs font-mono text-[#64748B] block mb-2 font-semibold">Technologies</span>
-            <div class="flex flex-wrap gap-2">
-              ${p.techStack.map(t => `<span class="text-xs font-mono px-3 py-1 rounded-full bg-white border border-[#E2E8F0] text-[#111827] font-medium hover:border-[#A5F3FC] hover:text-[#0891B2] transition-colors">${t}</span>`).join('')}
-            </div>
-          </div>
-
-          <div class="flex flex-wrap items-center gap-4 pt-4 border-t border-[#E2E8F0]">
-            ${p.hasCaseStudy ? `
-              <button class="open-case-study-btn magnetic-btn btn-apple-primary px-6 py-3 text-xs font-bold shadow-md">
-                Explore Case Study <span class="btn-arrow">→</span>
-              </button>
-            ` : `
-              <a href="${p.demo}" target="_blank" rel="noopener noreferrer" class="magnetic-btn btn-apple-primary px-6 py-3 text-xs font-bold">
-                View Project <span class="btn-arrow">→</span>
-              </a>
-            `}
-            <a href="${p.github}" target="_blank" rel="noopener noreferrer" class="magnetic-btn btn-apple-white px-6 py-3 text-xs font-bold">
-              GitHub Repo ↗
+        <div class="flex flex-wrap items-center gap-4 pt-6 border-t border-[#E2E8F0] dark:border-slate-800">
+          ${p.hasCaseStudy ? `
+            <button class="open-case-study-btn magnetic-btn btn-apple-primary px-6 py-3 text-xs font-bold shadow-md">
+              Explore Case Study <span class="btn-arrow">→</span>
+            </button>
+          ` : `
+            <a href="${p.demo}" target="_blank" rel="noopener noreferrer" class="magnetic-btn btn-apple-primary px-6 py-3 text-xs font-bold">
+              View Project <span class="btn-arrow">→</span>
             </a>
-          </div>
+          `}
+          <a href="${p.github}" target="_blank" rel="noopener noreferrer" class="magnetic-btn btn-apple-white px-6 py-3 text-xs font-bold">
+            GitHub Repo ↗
+          </a>
         </div>
-
-        <!-- Visual vector frame -->
-        <div class="lg:col-span-6 order-1 lg:order-2">
-          <div class="aspect-video w-full rounded-2xl overflow-hidden border border-[rgba(6,182,212,0.2)] bg-[#F8FAFC] shadow-sm hover:shadow-md transition-shadow">
-            ${getProjectSvgVisual(p)}
-          </div>
-        </div>
-
       </div>
     </div>
   `).join('');

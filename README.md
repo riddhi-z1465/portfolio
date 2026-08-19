@@ -8,7 +8,7 @@
 ## 🌟 Live Demo & Preview
 
 - **GitHub Repository**: [https://github.com/riddhi-z1465/portfolio](https://github.com/riddhi-z1465/portfolio)
-- **Live Website**: [https://riddhi-z1465.github.io/portfolio/](https://riddhi-z1465.github.io/portfolio/)
+- **Live Website**: [https://portfolio-six-woad-51.vercel.app/](https://portfolio-six-woad-51.vercel.app/)
 
 ---
 
