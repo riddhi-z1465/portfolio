@@ -591,30 +591,27 @@ html.dark ::-webkit-scrollbar-thumb:hover {
 .cert-card-img-wrap {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #F8FAFC 0%, #EEF2F6 100%);
+  background-color: #F8FAFC;
   border-radius: 0.875rem;
   border: 1px solid #E2E8F0;
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.02);
 }
 
 .cert-card-img-wrap:hover {
   border-color: #A5F3FC;
-  box-shadow: 0 10px 28px rgba(6, 182, 212, 0.15), inset 0 2px 6px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 10px 28px rgba(6, 182, 212, 0.15);
 }
 
 .cert-card-img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.07));
-  border-radius: 6px;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .cert-card-img-wrap:hover .cert-card-img {
-  transform: scale(1.035);
-  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.12));
+  transform: scale(1.04);
 }
 
 /* Project Filter Buttons */

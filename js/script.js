@@ -889,7 +889,7 @@ function renderCertifications() {
     <div class="cert-card p-5 sm:p-6 rounded-2xl flex flex-col justify-between group transition-all">
       <div>
         <!-- Prominent Certificate Thumbnail Frame -->
-        <div class="cert-card-img-wrap aspect-[16/11] sm:aspect-[16/10] w-full mb-5 relative cursor-pointer flex items-center justify-center p-3 sm:p-4"
+        <div class="cert-card-img-wrap aspect-[4/3] sm:aspect-[1.38/1] w-full mb-5 relative cursor-pointer flex items-center justify-center overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-800"
              data-cert-id="${cert.id}"
              role="button"
              tabindex="0"
@@ -909,7 +909,7 @@ function renderCertifications() {
           <img src="${cert.image}"
                alt="${cert.title} Certificate"
                loading="lazy"
-               class="cert-card-img w-full h-full object-contain"
+               class="cert-card-img w-full h-full object-cover object-center"
                onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.classList.remove('hidden');" />
           
           <!-- Fallback if image fails to load -->
