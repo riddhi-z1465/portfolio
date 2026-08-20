@@ -403,7 +403,7 @@ function initNavigation() {
   const navLinks = document.querySelectorAll('.nav-link-item');
   const backToTopBtn = document.getElementById('back-to-top');
 
-  const sections = ['home', 'brand-statement-section', 'journey', 'what-i-build', 'skills', 'projects', 'experience', 'contact'];
+  const sections = ['home', 'brand-statement-section', 'what-i-build', 'skills', 'projects', 'experience', 'contact'];
 
   // Smooth anchor clicks across all in-page links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -611,7 +611,6 @@ function init3DCardPhysics() {
    8. DYNAMIC CONTENT RENDERING (PURE CYAN THEME)
    ========================================================================== */
 function initRenderContent() {
-  renderJourney();
   renderWhatIBuild();
   renderSkills();
   renderProjectsShowcase('all');
@@ -620,30 +619,6 @@ function initRenderContent() {
   renderCertifications();
   renderGithubSection();
   renderCaseStudyModal();
-}
-
-function renderJourney() {
-  const container = document.getElementById('journey-container');
-  if (!container) return;
-
-  container.innerHTML = `
-    <div class="journey-node-stem" id="journey-stem-line"></div>
-    ${PORTFOLIO_DATA.journey.map(item => `
-      <div class="journey-card relative flex items-start gap-6 group" data-step="${item.step}">
-        <div class="journey-step-badge flex items-center justify-center font-mono font-bold text-xs shrink-0 z-10">
-          ${item.step}
-        </div>
-        <div class="p-6 sm:p-8 rounded-3xl bg-white/90 dark:bg-slate-900/80 backdrop-blur-xl border border-[rgba(6,182,212,0.14)] dark:border-slate-800/80 w-full shadow-sm hover:border-[#A5F3FC] dark:hover:border-cyan-400/40 hover:shadow-md transition-all space-y-2.5">
-          <div class="flex flex-wrap items-center justify-between gap-2">
-            <span class="text-xs font-mono text-[#0891B2] dark:text-[#22D3EE] font-bold uppercase tracking-wider">${item.tag}</span>
-            ${item.period ? `<span class="text-xs font-mono text-[#64748B] dark:text-[#94A3B8]">${item.period}</span>` : ''}
-          </div>
-          <h3 class="text-xl sm:text-2xl font-bold text-[#111827] dark:text-[#F8FAFC] tracking-tight">${item.title}</h3>
-          <p class="text-sm sm:text-base text-[#64748B] dark:text-[#94A3B8] leading-relaxed">${item.description}</p>
-        </div>
-      </div>
-    `).join('')}
-  `;
 }
 
 function renderWhatIBuild() {
@@ -1346,39 +1321,7 @@ function initScrollAnimations() {
     );
   }
 
-  // 3. Dynamic Journey Timeline Stem (Scrubbed drawing down)
-  const journeySection = document.getElementById('journey');
-  const journeyStem = document.getElementById('journey-stem-line');
-  if (journeySection && journeyStem) {
-    gsap.fromTo(journeyStem,
-      { scaleY: 0 },
-      {
-        scaleY: 1,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: journeySection,
-          start: 'top 70%',
-          end: 'bottom 85%',
-          scrub: 0.5
-        }
-      }
-    );
 
-    // Light up each journey step badge as it enters
-    document.querySelectorAll('.journey-card').forEach((card) => {
-      const badge = card.querySelector('.journey-step-badge');
-      ScrollTrigger.create({
-        trigger: card,
-        start: 'top 75%',
-        onEnter: () => {
-          if (badge) badge.classList.add('badge-active');
-        },
-        onLeaveBack: () => {
-          if (badge) badge.classList.remove('badge-active');
-        }
-      });
-    });
-  }
 
   // 4. Section Headers & Main Blocks Entrance
   const sectionHeadings = document.querySelectorAll('section > div > div.mb-16, section > div > div.space-y-3');
